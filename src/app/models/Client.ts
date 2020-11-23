@@ -1,10 +1,11 @@
 import {Adresse} from "./Adresse";
 import {Personne} from "./Personne";
-import {Departement} from "./Departement";
 
-export class Employe extends Personne{
+
+export class Client extends Personne{
   constructor(public id ?: number,
               public version?: number,
+              public titre?: string,
               public nom ?: string,
               public prenom ?: string,
               public email ?: string,
@@ -12,9 +13,9 @@ export class Employe extends Personne{
               public fonction ?: string,
               public nomComplet ?: string,
               public adresse ?: Adresse,
-              public departement?: Departement,
+              public actived?: boolean,
               public  type?: string) {
-    super(id, version, nom, prenom, email, password, fonction, nomComplet, adresse, type);
+    super(id, version, titre, nom, prenom, email, password, fonction, nomComplet, adresse, actived, type);
   }
 
 

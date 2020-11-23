@@ -1,4 +1,6 @@
 import {Categorie} from './Categorie';
+import {Ville} from "./Ville";
+import {Personne} from "./Personne";
 export class Terrains {
   constructor(public id ?: number,
               public version?: number,
@@ -6,8 +8,12 @@ export class Terrains {
               public description ?: string,
               public prix?: number,
               public path?: string,
+              public latitude?: number,
+              public longitude?: number,
+              public numero?: string,
               public categorie?: Categorie,
-              public idClient?: number,
+              public ville?: Ville,
+              public personne?: Personne,
               public paye?: boolean,
               public abonneGeo?: boolean,
               public type?: string
