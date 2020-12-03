@@ -21,4 +21,18 @@
       </div>
     </div>
   </div>
+  <!-- app.component.html -->
+  <div class="container">
+
+    <agm-map
+      [latitude]="latitude"
+      [longitude]="longitude"
+      [zoom]="zoom" >
+      <agm-marker
+        [latitude]="latitude"
+        [longitude]="longitude"></agm-marker>
+    </agm-map>
+
+  </div>
+
 </div>

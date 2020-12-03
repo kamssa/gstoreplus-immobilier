@@ -21,6 +21,10 @@ export class DetailTerrainComponent implements  OnInit, AfterViewInit, OnDestroy
   terrains: Terrain[];
   flasTerrains: FlashTerrain[];
   edit = false;
+  title: string = 'AGM project';
+  latitude: number;
+  longitude: number;
+  zoom:number;
   constructor(private route: ActivatedRoute,
               private  router: Router,
               private terrainService: TerrainService,
@@ -37,8 +41,18 @@ export class DetailTerrainComponent implements  OnInit, AfterViewInit, OnDestroy
       this.terrainId = result.body.id;
       console.log('Voir le terrain ramené', this.terrain);
     });
+    this.setCurrentLocation();
 
-
+  }
+  // Get Current Location Coordinates
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 15;
+      });
+    }
   }
   ngAfterViewInit(): void {
     this.cdRef.detectChanges();

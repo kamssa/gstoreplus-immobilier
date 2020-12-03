@@ -13,6 +13,9 @@ import {FoncierComponent} from "../../foncier/foncier/foncier.component";
 import {ImmobilierComponent} from "../../immobilier/immobilier/immobilier.component";
 import {BlogComponent} from "../../blog/blog/blog.component";
 import {AllterrainComponent} from "../../terrain/allterrain/allterrain.component";
+import {ContactComponent} from "../../contact/contact.component";
+import {DemandeDevidComponent} from "../../demande-devid/demande-devid.component";
+import {InvestissementComponent} from "../../investissement/investissement.component";
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -23,7 +26,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'demande/:id', component: DemandeComponent },
   { path: 'createCompte', component: CreateCompteComponent },
   { path: 'verification', component: VerificationRegisterComponent },
-  { path: 'actualite', component: ActualiteComponent},
   { path: 'terrainParVille', component: TerrainVilleComponent},
   { path: 'dashboard/:id', component: DashboardComponent },
   { path: 'apropos', component: AproposComponent },
@@ -32,4 +34,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'terrainVille/:id', component: TerrainVilleComponent },
   { path: 'allterrain', component: AllterrainComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'devis', component: DemandeDevidComponent },
+  { path: 'investissement', component: InvestissementComponent },
   ];

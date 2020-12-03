@@ -1,9 +1,7 @@
 .container{
-  margin-top: 100px;
+  margin-top: 30px;
 }
-.img1{
 
-}
 .cardAnnonce{
   box-shadow: 0 15px 25px -7px rgba(0,0,0,.09), 0 -12px 10px -10px rgba(0,0,0,.04);
   background: #fff;
@@ -14,8 +12,8 @@
 
 
 .myrow{
-  margin: 10px;
-  padding: 10px;
+ margin: 0px;
+  padding: 0px;
 
 }
 #carouselSite{
@@ -59,20 +57,17 @@ h1:before {
 h1:after {
   margin-left: .3rem
 }
-
-
 .produits{
   margin-top: 20px;
   padding: 0;
 }
+
 .example-card {
   max-width: 200px;
-
 
 }
 .mat-card-image{
   width: 200px;
-
 }
 .cadreSearch {
   min-height: 305px;

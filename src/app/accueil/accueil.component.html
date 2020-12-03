@@ -1,93 +1,24 @@
-<div class="container">
-<!--<div
-  fxLayout="column">
-<div
-  fxLayoutGap="2%"
-  fxFlex="auto"
-  fxLayoutAlign="space-around center"
-  class="main-toolbar-wrapper p-3"
-  fxLayout="row"
-  fxHide.xs>
-  <div fxFlex="10"
-class="branding pl-2">
-  <img src="assets/img/g5.gif">
-</div>
-  <div fxFlex="70"
-  fxLayoutGap="2%">
-    <div id="carouselSite" class="carousel slide " data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselSite" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselSite" data-slide-to="1"></li>
-          <li data-target="#carouselSite" data-slide-to="2"></li>
-          <li data-target="#carouselSite" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="assets/img/g.jpg" class="img-fluid">
-            <div class="carousel-caption">
-              <h3 style="color: #c51162">Nouvel arrivage</h3>
-              <p style="color: #c51162"> materiel de qualité pour tous vos travaux</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/g1.jpg" class="img-fluid">
-            <div class="carousel-caption">
-              <h3 style="color: #c51162">Nouvel arrivage</h3>
-              <p style="color: #c51162"> materiel de qualité pour tous vos travaux</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/g2.jpg" class="img-fluid">
-            <div class="carousel-caption">
-              <h3 style="color: #c51162">Nouvel arrivage</h3>
-              <p style="color: #c51162"> materiel de qualité pour tous vos travaux</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/g3.jpg" class="img-fluid">
-            <div class="carousel-caption">
-              <h3 style="color: #c51162">Nouvel arrivage</h3>
-              <p style="color: #c51162"> materiel de qualité pour tous vos travaux</p>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
-          <i class="fa fa-chevron-circle-left" aria-hidden="true" id="element" ></i>
-          <span class="sr-only">rétour</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
-          <i class="fa fa-chevron-circle-right" aria-hidden="true" id="elementID"></i>
-          <span class="sr-only">avance</span>
-        </a>
-      </div>
-  </div>
-  <div fxFlex="10"
-       class="branding pl-2">
-    <img src="assets/img/g5.gif">
-  </div>
-</div>
-</div>-->
+<div class="cadre">
   <div class="container">
     <div class="row ">
       <div class="col-md-2">
         <div class="card cardAnnonce">
-          <div class="">
+          <div class="" fxLayout="column" fxLayoutAlign="space-between center">
             <img src="./assets/img/img-pub.jpg" class="img-fluid">
           </div>
           <div class="text-center pb-2">
             <button class="btn btn-outline-primary btnVoir">Voir +</button>
           </div>
         </div>
-
       </div>
       <div class="col-md-8">
-        <div class="row justify-content-center">
+        <div class="justify-content-center" style="position: relative;" *ngIf="flasTerrains != []">
           <div id="carouselSite" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-              <li data-target="#carouselSite" data-slide-to="i" class="active"></li>
+              <li data-target="#carouselExampleIndicators" *ngFor="let flash of flasTerrains;let index = index" [attr.data-slide-to]="index"></li>
             </ol>
             <div class="carousel-inner">
-              <div class="carousel-item active" *ngFor="let flash of flasTerrains">
+              <div class="carousel-item"  *ngFor="let flash of flasTerrains;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
                 <img [src]="flash.path" class="img-fluid">
                 <div class="carousel-caption">
                   <h3 style="color: #191919">{{flash.prix | number}}</h3>
@@ -97,19 +28,19 @@ class="branding pl-2">
 
             </div>
             <a class="carousel-control-prev" href="#carouselSite" role="button" data-slide="prev">
-              <i class="fa fa-chevron-circle-left" aria-hidden="true" id="element" ></i>
+              <i class="fa fa-chevron-circle-left" aria-hidden="true" id="element"></i>
+              <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
               <i class="fa fa-chevron-circle-right" aria-hidden="true" id="elementID"></i>
+              <span class="sr-only">Next</span>
             </a>
           </div>
-
-
         </div>
       </div>
-      <div class="col-md-2" fxLayout="column" fxLayoutAlign="space-between center" >
+      <div class="col-md-2" fxLayout="column" fxLayoutAlign="space-between center">
         <div class="card cardAnnonce">
-          <div class="" fxLayout="column" fxLayoutAlign="space-between center" >
+          <div class="" fxLayout="column" fxLayoutAlign="space-between center">
             <img src="./assets/img/img-pub.jpg" class="img-fluid">
           </div>
           <div class="text-center pb-2">
@@ -120,58 +51,86 @@ class="branding pl-2">
       </div>
     </div>
   </div>
+  <form>
+  <div class="row justify-content-center">
+        <div class="col-md-2">
+        <mat-form-field class="">
+          <input matInput type="text" value="" class="form-control" placeholder="Type de bien">
+        </mat-form-field>
+      </div>
+      <mat-form-field class="col-md-2">
+        <div class="">
+          <input matInput type="text" value="" class="form-control" placeholder="Localisation">
+        </div>
+      </mat-form-field>
+      <div class="col-md-2">
+        <mat-form-field class="">
+          <input matInput type="text" value="" class="form-control" placeholder="Budget max">
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-lg">Rechercher</button>
+      </div>
 
-<div class="row justify-content-center">
-  <div class="produits">
-    <h3 class="titreT">Achetez votre terrain en toute sécurité</h3>
   </div>
-</div>
-<div class="row justify-content-center">
-  <mat-form-field appearance="legacy" class="col-md-5" >
-    <mat-label>Selectionner une ville pour voir les terrains disponibles</mat-label>
-    <mat-select #villeValue  (selectionChange)="changeVille($event.value)" [placeholder]="modeselect">
-      <mat-option value="tous">Toutes les villes</mat-option>
-      <mat-option *ngFor="let ville of villes" [value]="ville.id">
-        {{ville.libelle}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+  </form>
+  <div class="row justify-content-center">
+    <div class="produits">
+      <h3 class="titreT">Achetez votre terrain en toute sécurité</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <mat-form-field appearance="legacy" class="col-md-5">
+      <mat-label>Selectionner une ville pour voir les terrains disponibles</mat-label>
+      <mat-select #villeValue (selectionChange)="changeVille($event.value)">
+        <mat-option value="tous">Toutes les villes</mat-option>
+        <mat-option *ngFor="let ville of villes" [value]="ville.id">
+          {{ville.libelle}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="container">
     <div class="row">
       <div *ngFor="let item of terrains" class="col myrow">
         <mat-card class="example-card">
           <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-subtitle fxLayoutAlign="space-around center">{{item.libelle}}</mat-card-subtitle>
+            <mat-card-subtitle fxLayoutAlign="space-around center" style="margin-left:-8px;">{{item.libelle}}</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image [src]="item.path" alt="Image de terrain">
           <mat-card-content>
             <p fxLayout="row" fxLayoutAlign="space-around center">{{item.prix|number}}</p>
+            <p><strong>
+              {{item.ville.libelle | slice:0:100}}</strong>
+            </p>
             <p>
               {{item.description | slice:0:100}}
             </p>
           </mat-card-content>
           <div fxLayout="row" fxLayoutAlign="space-around center">
-            <button  mat-button color="primary" (click)="onDetail(item.id)">En savoir plus</button>
+            <button mat-button color="primary" (click)="onDetail(item.id)">En savoir plus</button>
           </div>
         </mat-card>
       </div>
+      <div></div>
     </div>
-    <div class="row justify-content-center">
-      <div class="produits">
-        <div fxLayout="column" fxLayoutAlign="space-between end">
-          <span class="material-icons">chat</span>
-        </div>
-        <div class="row myrow justify-content-center">
-          <h1 class="justify-content-center">
-            <button mat-raised-button (click)="openTerrainVille()">Voir plus</button>
-          </h1></div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="produits">
+      <div fxLayout="column" fxLayoutAlign="space-between end">
+        <span class="material-icons">chat</span>
+      </div>
+      <div class="row myrow justify-content-center">
+        <h1 class="justify-content-center">
+          <button mat-raised-button (click)="openTerrainVille()">Voir plus</button>
+        </h1>
       </div>
     </div>
+  </div>
   <div class="container cadrePourquoi">
     <div class="row" style="padding-top: 50px;">
       <div class="col-md-12 text-center">
-        <h3 class="titreT">SAVIEZ-VOUS QUE VOUS POUVEZ AVOIR UNE VUE SUR VOTRE TERRAIN SANS AVOIR A VOUS DÉPLACER ?</h3>
+        <h3>SAVIEZ-VOUS QUE VOUS POUVEZ AVOIR UNE VUE SUR VOTRE TERRAIN SANS AVOIR A VOUS DÉPLACER ?</h3>
       </div>
     </div>
     <div class="row" style="padding-top: 80px;padding-bottom: 100px;">
@@ -187,7 +146,10 @@ class="branding pl-2">
                         </i>
                     </span>
             <h4>
-              Maintenant, c'est possible avec GSPLUS SARL votre partenaire 100% digital, avec un service client 💯% humain qui vous permet d'avoir une vue en temps réel de votre site et vous explique avec toutes les garanties le processus d'acquisition d'un terrain, avec une conscience professionnelle, et qui aide à obtenir toute la documentation nécessaire du site ''ACD''.
+              Maintenant, c'est possible avec GSPLUS SARL votre partenaire 100% digital, avec un service client 💯%
+              humain qui vous permet d'avoir une vue en temps réel de votre site et vous explique avec toutes les
+              garanties le processus d'acquisition d'un terrain, avec une conscience professionnelle, et qui aide à
+              obtenir toute la documentation nécessaire du site ''ACD''.
             </h4>
           </div>
         </div>
@@ -198,7 +160,7 @@ class="branding pl-2">
                         </i>
                     </span>
             <h4>
-              Avec GSPLUS SARL , c'est garantie d'un traitement rapide de toutes vos demandes d'achat de terrain.            </h4>
+              Avec GSPLUS SARL , c'est garantie d'un traitement rapide de toutes vos demandes d'achat de terrain. </h4>
           </div>
         </div>
         <div class="pt-5" style="display: flex;">
@@ -208,7 +170,8 @@ class="branding pl-2">
                         </i>
                     </span>
             <h4>
-              Sans engagement, obtenez une meilleure offre en quelques minutes ou prenez RDV avec un de nos conseillers et nous serons ravis de vous rencontrer. GSPLUS, un ami plus qu'un partenaire !!
+              Sans engagement, obtenez une meilleure offre en quelques minutes ou prenez RDV avec un de nos conseillers
+              et nous serons ravis de vous rencontrer. GSPLUS, un ami plus qu'un partenaire !!
             </h4>
           </div>
         </div>
@@ -219,49 +182,13 @@ class="branding pl-2">
                         </i>
                     </span>
             <h4>
-              GSPLUS SARL, les premiers dans l'immobilier en Côte d'Ivoire           </h4>
+              GSPLUS SARL, les premiers dans l'immobilier en Côte d'Ivoire </h4>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container-fluid cadreTemoignages">
-    <div class="row" style="padding-top: 80px;">
-      <div class="col-md-12 text-center">
-        <h3 class="titreT">Témoignages</h3>
-      </div>
-    </div>
-    <div class="row pt-5 pb-5">
-      <div class="col-md-6">
-        <div class="card styleCardT1">
-          <div class="image1">
-            <img src="./assets/img/terrain7.jpg" alt="" class="img-fluid img1">
-          </div>
-          <div class="card-body">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolor assumenda tenetur tempora, non dolore quidem itaque ratione in dolorum odit atque? Laboriosam placeat ea sequi quo illo tempore? Aliquam.</p>
-            <div>
-              <h4 class="nom"> Jack Jordan </h4>
-              <p class="designation">Lead Developer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card styleCardT2">
-          <div class="image1">
-            <img src="./assets/img/terrain8.jpg" alt="" class="img-fluid img1">
-          </div>
-          <div class="card-body">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dolor assumenda tenetur tempora, non dolore quidem itaque ratione in dolorum odit atque? Laboriosam placeat ea sequi quo illo tempore? Aliquam.</p>
-            <div>
-              <h4 class="nom"> Cicilia Roe </h4>
-              <p class="designation">Director Marketing</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- nos partenaires -->
   <div class="container-fluid cadrePartenaires">

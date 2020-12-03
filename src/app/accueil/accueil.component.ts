@@ -111,4 +111,8 @@ export class AccueilComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   }
+
+  OnChecked(event) {
+    console.log(event.value);
+  }
 }

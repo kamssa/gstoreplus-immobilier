@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {MediaObserver} from "@angular/flex-layout";
 import {MembreService} from "../../service/membre.service";
@@ -17,11 +17,16 @@ export class CreateCompteComponent implements OnInit {
   value = 'Clear me';
   private mediaSub: Subscription;
   edit = false;
+  hide = true;
   membreForm: FormGroup;
   private dialogConfig;
   membre: Membre;
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  signin: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.email, Validators.required ]),
+    password: new FormControl('', [Validators.required, Validators.min(3) ])
+  });
   constructor(private route: ActivatedRoute,
               private  router: Router,
               private cdRef: ChangeDetectorRef,
@@ -48,6 +53,10 @@ export class CreateCompteComponent implements OnInit {
       })
     });
 
+  }
+  get emailInput() { return this.signin.get('email'); }
+  get passwordInput() {
+    return this.signin.get('password');
   }
   onSubmit(membreFormValue) {
 

@@ -1,5 +1,10 @@
 <div class="cadre">
   <div class="container">
+    <div class="row myrow justify-content-center">
+
+      <h1 class="justify-content-center">
+        <span>Mon Tableau de bord</span>
+      </h1></div>
     <div class="card login-card ">
       <div class="row">
         <div class="col-md-7">
@@ -21,4 +26,16 @@
       </div>
     </div>
   </div>
+  <div class="container">
+    <agm-map
+      [latitude]="latitude"
+      [longitude]="longitude"
+      [zoom]="zoom" >
+      <agm-marker
+        [latitude]="latitude"
+        [longitude]="longitude"></agm-marker>
+    </agm-map>
+
+  </div>
+
 </div>

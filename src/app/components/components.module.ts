@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {BandeComponent} from './bande/bande.component';
 import {MaterialModule} from "../material/material.module";
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -16,14 +17,16 @@ import {MaterialModule} from "../material/material.module";
   declarations: [
     FooterComponent,
     NavbarComponent,
-    BandeComponent
+    BandeComponent,
+    SidebarComponent
 
   ],
-  exports: [
-    FooterComponent,
-    NavbarComponent,
-    BandeComponent
+    exports: [
+        FooterComponent,
+        NavbarComponent,
+        BandeComponent,
+        SidebarComponent
 
-  ]
+    ]
 })
 export class ComponentsModule { }

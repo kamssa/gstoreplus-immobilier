@@ -7,7 +7,7 @@ import {AuthService} from "../../service/auth.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {MembreService} from "../../service/membre.service";
 import {DemandeService} from "../../service/demande.service";
-
+declare const $: any;
 
 @Component({
   selector: 'app-navbar',
@@ -36,50 +36,15 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(){
-    if (localStorage.getItem('currentUser')) {
-      let token = localStorage.getItem('currentUser');
-      let decode = this.helper.decodeToken(token);
-      console.log(' Dans la navbar', decode);
-      this.membreService.getMembreById(decode.sub).subscribe(res => {
-        console.log('admin', res.body);
-        this.personne = res.body;
-        this.nom = this.personne.nom;
-        this.premierC = this.nom.substr(0, 1);
-      });
-
-    }
-  }
-
-  sidebarOpen() {
-    const toggleButton = this.toggleButton;
-    const body = document.getElementsByTagName('body')[0];
-    setTimeout(function(){
-      toggleButton.classList.add('toggled');
-    }, 500);
-
-    body.classList.add('nav-open');
-
-    this.sidebarVisible = true;
-  };
-  sidebarClose() {
-    const body = document.getElementsByTagName('body')[0];
-    this.toggleButton.classList.remove('toggled');
-    this.sidebarVisible = false;
-    body.classList.remove('nav-open');
-  };
-  sidebarToggle() {
-    // const toggleButton = this.toggleButton;
-    // const body = document.getElementsByTagName('body')[0];
+     const toggleButton = document.getElementsByClassName('navbar-toggler')[0];
+     const navbarLink = document.getElementsByClassName('navbar-link')[0];
+     toggleButton.addEventListener('click',() => {
+     navbarLink.classList.toggle('active');
+     });
     var $toggle = document.getElementsByClassName('navbar-toggler')[0];
-
-    if (this.sidebarVisible === false) {
-      this.sidebarOpen();
-    } else {
-      this.sidebarClose();
-    }
     const body = document.getElementsByTagName('body')[0];
 
-    if (this.mobile_menu_visible == 1) {
+    if (this.mobile_menu_visible === 1) {
       // $('html').removeClass('nav-open');
       body.classList.remove('nav-open');
       if ($layer) {
@@ -123,22 +88,19 @@ export class NavbarComponent implements OnInit {
       this.mobile_menu_visible = 1;
 
     }
-  };
+    if (localStorage.getItem('currentUser')) {
+      let token = localStorage.getItem('currentUser');
+      let decode = this.helper.decodeToken(token);
+      console.log(' Dans la navbar', decode);
+      this.membreService.getMembreById(decode.sub).subscribe(res => {
+        console.log('admin', res.body);
+        this.personne = res.body;
+        this.nom = this.personne.nom;
+        this.premierC = this.nom.substr(0, 1);
+      });
 
-  getTitle(){
-    var titlee = this.location.prepareExternalUrl(this.location.path());
-    if(titlee.charAt(0) === '#'){
-      titlee = titlee.slice( 1 );
     }
-
-    for(var item = 0; item < this.listTitles.length; item++){
-      if(this.listTitles[item].path === titlee){
-        return this.listTitles[item].title;
-      }
-    }
-    return 'Dashboard';
   }
-
   logout() {
   this.authService.logout();
   }

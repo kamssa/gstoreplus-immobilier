@@ -49,7 +49,8 @@ const  materialComponents = [
   MatNativeDateModule,
   MatDialogModule,
   MatSortModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatToolbarModule
 
 ];
 

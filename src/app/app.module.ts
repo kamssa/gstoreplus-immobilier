@@ -36,6 +36,12 @@ import { TerrainVilleComponent } from './terrain/terrain-ville/terrain-ville.com
 import { ActualiteComponent } from './actualite/actualite.component';
 import { AllterrainComponent } from './terrain/allterrain/allterrain.component';
 import { ContactComponent } from './contact/contact.component';
+import { DemandeDevidComponent } from './demande-devid/demande-devid.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { InvestissementComponent } from './investissement/investissement.component';
+import {AgmCoreModule} from "@agm/core";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -60,7 +66,11 @@ registerLocaleData(localeFr);
     TerrainVilleComponent,
     ActualiteComponent,
     AllterrainComponent,
-    ContactComponent
+    ContactComponent,
+    DemandeDevidComponent,
+    SidebarComponent,
+    InvestissementComponent,
+    DashboardComponent
 
   ],
   imports: [
@@ -72,7 +82,12 @@ registerLocaleData(localeFr);
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAz8F_idsjwsYcICFfDXhtDPpUS1ZpXsz4',
+      libraries: ['places']
+    })
 
 
   ],

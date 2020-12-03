@@ -29,7 +29,6 @@ export class AuthService {
   login(user: Client) {
     return this.http.post<Resultat<any>>(`${environment.apiUrl}/api/auth/signin`, user)
       .pipe(map(res => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(res.body.body.accessToken));
         this.currentUserSubject.next(res.body.body.accessToken);
         this.isUserLoggedIn.next(true);
