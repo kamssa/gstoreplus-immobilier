@@ -10,7 +10,5 @@ app.listen(process.env.port || 4200, function(){
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname + "dist/gstoreplusimmobilier/index.html"));
 });
-var server = http.createServer((req, res) => {
-  //your stuff
-});
+
 console.log("app is listenning");
