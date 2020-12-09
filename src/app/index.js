@@ -4,7 +4,7 @@ const path = require("path");
 const request = require("request");
 app.use(express.static(__dirname + "dist/gstoreplusimmobilier"));
 
-app.listen(process.env.port || 4200, '0.0.0.0', function() {
+app.listen(process.env.port || 3000, function() {
   console.log("up and running on port "+ process.env.PORT);
 });
 app.get("/*", function(req, res) {
