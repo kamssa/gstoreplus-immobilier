@@ -11,8 +11,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '', title: 'Blog'},
   { path: '', title: 'Investissement'},
   { path: '', title: 'Contact'},
-  { path: '', title: 'Se connecter'}
-]
+  { path: '/login', title: 'Se connecter'}
+];
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
