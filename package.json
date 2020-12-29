@@ -1,10 +1,6 @@
 {
   "name": "gstoreplusimmobilier",
   "version": "0.0.1",
-  "engines": {
-    "node": "12.18.4",
-    "npm": "6.14.6"
-  },
   "scripts": {
     "ng": "ng",
     "start": "node src/app/index.js",
@@ -41,6 +37,7 @@
     "jquery": "^3.5.1",
     "jwt-decode": "^3.1.1",
     "moment": "^2.29.0",
+    "ngx-gallery": "^5.10.0",
     "perfect-scrollbar": "^1.5.0",
     "popper": "^1.0.1",
     "popper.js": "^1.14.3",
@@ -71,5 +68,9 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
+  },
+  "engines": {
+    "node": "12.18.4",
+    "npm": "6.14.6"
   }
 }

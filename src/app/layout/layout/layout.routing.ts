@@ -6,7 +6,6 @@ import {DetailTerrainComponent} from '../../terrain/detail-terrain/detail-terrai
 import {DemandeComponent} from '../../demande/demande/demande.component';
 import {CreateCompteComponent} from '../../account/create-compte/create-compte.component';
 import {VerificationRegisterComponent} from '../../verification-register/verification-register.component';
-import {ActualiteComponent} from '../../actualite/actualite.component';
 import {TerrainVilleComponent} from '../../terrain/terrain-ville/terrain-ville.component';
 import {AproposComponent} from "../../apropos/apropos.component";
 import {FoncierComponent} from "../../foncier/foncier/foncier.component";
@@ -16,6 +15,8 @@ import {AllterrainComponent} from "../../terrain/allterrain/allterrain.component
 import {ContactComponent} from "../../contact/contact.component";
 import {DemandeDevidComponent} from "../../demande-devid/demande-devid.component";
 import {InvestissementComponent} from "../../investissement/investissement.component";
+import {LoginComponent} from "../../account/login/login.component";
+import {RegistryComponent} from "../../account/registry/registry.component";
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -37,4 +38,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'devis', component: DemandeDevidComponent },
   { path: 'investissement', component: InvestissementComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistryComponent }
   ];
