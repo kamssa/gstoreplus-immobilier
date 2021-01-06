@@ -75,7 +75,7 @@ export class CreateCompteComponent implements OnInit {
       if (resultat) {
         this.membre = resultat.body;
         this.snackBar.open(' Merci pour votre inscription! verifiez votre boite mail ', '', {
-          duration: 5000,
+          duration: 3000,
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
 

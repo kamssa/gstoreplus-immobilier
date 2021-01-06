@@ -8,6 +8,8 @@ import {FlashService} from "../service/flash.service";
 import {switchMap} from "rxjs/operators";
 import {DemandeService} from "../service/demande.service";
 import {Demande} from "../models/Demande";
+import {TerrainAcheterService} from "../service/terrain-acheter.service";
+import {TerrainAcheter} from "../models/TerrainAcheter";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +22,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   value = 'Clear me';
   private mediaSub: Subscription;
   terrains: Terrain[];
-  demandes: Demande[];
+  terrainAcheter: TerrainAcheter;
   flasTerrains: FlashTerrain[];
   edit = false;
   title: string = 'AGM project';
@@ -29,7 +31,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   zoom: number;
   constructor(private route: ActivatedRoute,
               private  router: Router,
-              private demandeService: DemandeService,
+              private terrainAcheterService: TerrainAcheterService,
               private cdRef: ChangeDetectorRef,
               private mediaObserver: MediaObserver,
               private flashService: FlashService, ) { }
@@ -37,10 +39,10 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.demandeService.getDemandeByIdPersonne(+params.get('id')))
+        this.terrainAcheterService.getTerrainAcheterByIdPersonne(+params.get('id')))
     ).subscribe(result => {
-      this.demandes = result.body;
-      console.log('Voir les demandes ramené', this.demandes);
+      this.terrainAcheter = result.body;
+      console.log('Voir les produit ramené', this.terrainAcheter.produit);
     });
       this.setCurrentLocation();
   }
@@ -53,6 +55,8 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
         this.zoom = 15;
       });
     }
+
+
   }
   ngAfterViewInit(): void {
     this.cdRef.detectChanges();
@@ -64,7 +68,4 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  onDemande(id: number) {
-   // this.router.navigate(['demande', id]);
-  }
 }

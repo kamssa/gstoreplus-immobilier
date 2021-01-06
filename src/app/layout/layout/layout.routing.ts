@@ -30,8 +30,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'terrainParVille', component: TerrainVilleComponent},
   { path: 'dashboard/:id', component: DashboardComponent },
   { path: 'apropos', component: AproposComponent },
-  { path: 'foncier', component: FoncierComponent },
-  { path: 'immobilier', component: ImmobilierComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'terrainVille/:id', component: TerrainVilleComponent },
   { path: 'allterrain', component: AllterrainComponent },

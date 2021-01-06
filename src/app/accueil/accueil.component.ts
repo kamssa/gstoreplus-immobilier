@@ -23,6 +23,7 @@ export class AccueilComponent implements OnInit{
   membre: Membre;
   public modeselect = 'Tous';
   villeId: any;
+  item: number;
   constructor(
               private terrainService: TerrainService,
               private router: Router,

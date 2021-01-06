@@ -97,7 +97,7 @@ export class DemandeComponent implements OnInit {
       type:'PR'
     };
 
-    this.prospectService.registractionProspect(prospect, 'demande').subscribe(resultat => {
+    this.prospectService.registraction(prospect, 'demande').subscribe(resultat => {
       console.log(' voir le prospect retourne', resultat.body1.id);
       if (resultat){
         this.prospect = resultat.body1;

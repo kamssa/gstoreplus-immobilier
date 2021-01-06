@@ -14,7 +14,8 @@ export class VerificationRegisterComponent implements OnInit {
 membre: Membre;
   login: string;
   code: number;
-
+  values = '';
+  email: string;
   constructor(private route: ActivatedRoute,
               private  router: Router,
               private  membreService: MembreService,
@@ -23,18 +24,16 @@ membre: Membre;
 
   ngOnInit(): void {
     console.log('Called Constructor');
-    this.route.queryParams.subscribe(params => {
-      this.login = params['login'];
-      this.code = params['code'];
-      console.log(this.login);
-      console.log(this.code);
+    this.email = localStorage.getItem("email");
 
-    });
   }
-
+  onKey(event: any) { // without type info
+    this.code = event.target.value;
+    console.log(this.code);
+  }
   onClick() {
     console.log('voir ce qui se passe');
-    this.membreService.registractionConfirm(this.login, this.code).subscribe(res => {
+    this.membreService.registractionConfirm(this.email, this.code).subscribe(res => {
     console.log(res);
     this.membre = res.body;
     let membre: Membre = {
@@ -46,6 +45,7 @@ membre: Membre;
     if(res.body){
      this.authService.login(membre).subscribe(data => {
        localStorage.removeItem('password');
+       localStorage.removeItem('email');
        console.log('auth ok');
        if (data){
          this.router.navigate(['accueil']);
@@ -55,4 +55,6 @@ membre: Membre;
     }
 });
   }
+
+
 }

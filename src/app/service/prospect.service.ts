@@ -7,6 +7,7 @@ import {MessageService} from "./message.service";
 import {environment} from "../../environments/environment";
 import {Prospect} from "../models/Prospect";
 import {Reponse} from "../models/reponse";
+import {Membre} from "../models/Membre";
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +30,13 @@ export class ProspectService {
   getAllClient(): Observable<Resultat<Prospect[]>> {
     return this.http.get<Resultat<Prospect[]>>(`${environment.apiUrl}/api/auth/employe`);
   }
-  registractionProspect(prospect: Prospect, action: string): Observable<Reponse<any, Prospect>> {
+  registraction(prospect: Prospect, action: string): Observable<Reponse<any, Prospect>> {
     console.log('methode du service qui ajoute un client', prospect);
     return this.http.post<Reponse<any, Prospect>>(`${environment.apiUrl}/api/auth/signupp/?action=${action}`, prospect);
+  }
+  registractionConfirm(email: string, code: number): Observable<Resultat<Membre>> {
+    console.log('methode du service qui ajoute un membre', email);
+    return this.http.get<Resultat<Membre>>(`${environment.apiUrl}/api/auth/registrationConfirmM/?email=${email}&code=${code}`);
   }
   ajoutClient(prospect: Prospect): Observable<Resultat<Prospect>> {
     console.log('methode du service qui ajoute un client', prospect);
