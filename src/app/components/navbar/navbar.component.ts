@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {JwtHelperService} from "@auth0/angular-jwt";
+import {MembreService} from "../../service/membre.service";
+import {Personne} from "../../models/Personne";
+import {AuthService} from "../../service/auth.service";
 declare interface RouteInfo {
   path: string;
   title: string;
 }
 export const ROUTES: RouteInfo[] = [
   { path: '/accueil', title: 'Accueil'},
-  { path: '/inscription', title: 'A propos'},
-  { path: '', title: 'Demande de dévis'},
+  { path: '/apropos', title: 'A propos'},
+  { path: 'devis', title: 'Demande de dévis'},
   { path: '', title: 'Blog'},
   { path: '', title: 'Investissement'},
-  { path: '', title: 'Contact'},
+  { path: '/contact', title: 'Contact'},
   { path: '/login', title: 'Se connecter'}
+
 ];
 @Component({
   selector: 'app-navbar',
@@ -20,11 +25,29 @@ export const ROUTES: RouteInfo[] = [
 })
 export class NavbarComponent implements OnInit {
   menuItems: RouteInfo[];
-  constructor(private router: Router) { }
+  personne: Personne;
+  nom: string;
+  premierC: string;
+  constructor(private router: Router,
+              private helper: JwtHelperService,
+              private  membreService: MembreService,
+              private  authService: AuthService) { }
 
   ngOnInit(): void {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     console.log(this.menuItems);
+    if (localStorage.getItem('currentUser')) {
+      let token = localStorage.getItem('currentUser');
+      let decode = this.helper.decodeToken(token);
+      console.log(' Dans la navbar', decode);
+      this.membreService.getMembreById(decode.sub).subscribe(res => {
+        console.log('admin', res.body);
+        this.personne = res.body;
+        this.nom = this.personne.nom;
+        this.premierC = this.nom.substr(0, 1);
+      });
+
+    }
   }
   ngAfterViewInit() {
     var a = document.getElementById('premier').children;
@@ -42,5 +65,14 @@ export class NavbarComponent implements OnInit {
         a[t].classList.add('active');
       }
     }
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  openDash(id: number) {
+    console.log('id dans navbar', id);
+    this.router.navigate(['dashboard', id]);
   }
 }
