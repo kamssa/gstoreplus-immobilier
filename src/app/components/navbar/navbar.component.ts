@@ -89,7 +89,6 @@ this.getCurrentUser();
 
   logout() {
     this.authService.logout();
-
   }
 
   openDash(id: number) {

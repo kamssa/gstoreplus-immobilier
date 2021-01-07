@@ -46,6 +46,7 @@ export class AuthService {
     localStorage.removeItem('membre');
     this.currentUserSubject.next(null);
     this.isUserLoggedIn.next(false);
+    this._refreshNeeded$.next();
   }
 
 
