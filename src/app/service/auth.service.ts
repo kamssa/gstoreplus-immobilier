@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {HttpClient} from "@angular/common/http";
 import {Client} from "../models/Client";
@@ -12,13 +12,16 @@ import {map} from "rxjs/operators";
 })
 export class AuthService {
   private currentUserSubject: BehaviorSubject<any>;
+  private _refreshNeeded$ = new Subject<void>();
   public currentUser: Observable<any>;
   public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient, private helper: JwtHelperService) {
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
-
+   get refreshNeeded(){
+   return  this._refreshNeeded$;
+}
   public get currentUserValue(): any {
     return this.currentUserSubject.value;
   }
@@ -32,6 +35,7 @@ export class AuthService {
         localStorage.setItem('currentUser', JSON.stringify(res.body.body.accessToken));
         this.currentUserSubject.next(res.body.body.accessToken);
         this.isUserLoggedIn.next(true);
+        this._refreshNeeded$.next();
         return res;
       }));
   }
