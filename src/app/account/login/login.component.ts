@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../service/auth.service';
-import { first } from 'rxjs/operators';
 import {Personne} from '../../models/Personne';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -16,9 +16,13 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   error = '';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  isuAth: boolean;
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
+              private snackBar: MatSnackBar,
               private authenticationService: AuthService) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
@@ -52,7 +56,7 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.get('email').value;
     const password = this.loginForm.get('password').value;
     this.loading = true;
-    const  client = new Personne(
+    const  membre = new Personne(
       null,
       null,
       null,
@@ -64,19 +68,25 @@ export class LoginComponent implements OnInit {
       null,
       null,
       null,
-      'CL',
+      'ME',
 
     );
-    console.log(client);
-    this.authenticationService.login(client)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
-          this.error = error;
-          this.loading = false;
-        });
+    console.log(membre);
+    this.authenticationService.login(membre).subscribe(data => {
+        if (data.body){
+          this.snackBar.open('Succès de la connexion!', '', {
+            duration: 3000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+        }else {
+          this.isuAth = false;
+        }
+        this.router.navigate(['accueil']);
+      },
+      error => {
+        this.error = "email ou mot de passe oublié";
+        this.loading = false;
+      });
   }
 }
