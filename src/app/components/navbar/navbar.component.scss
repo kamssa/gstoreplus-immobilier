@@ -2,6 +2,7 @@
   background-color: #052051;
   min-height: 10vh;
 }
+
 .first-header i,span{
   color: white;
   font-weight: 600;
@@ -49,4 +50,10 @@ a:hover {
   transition: 1.5s;
   z-index: 2;
   box-shadow: 0 6px 12px rgba(0,0,0,.15);
+}
+.sticky+.content {
+  padding-top: 70px;
+}
+#navbar{
+  z-index: 1;
 }

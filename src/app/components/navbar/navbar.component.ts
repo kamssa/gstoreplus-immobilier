@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit {
               private  authService: AuthService) { }
 
   ngOnInit(): void {
+    window.addEventListener('scroll', this.myFunction);
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     console.log(this.menuItems);
     if (localStorage.getItem('currentUser')) {
@@ -49,6 +50,17 @@ export class NavbarComponent implements OnInit {
 
     }
   }
+  myFunction() {
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    if (window.pageYOffset > sticky) {
+      navbar.classList.add('sticky');
+    } else {
+      navbar.classList.remove('sticky');
+    }
+  }
+
+
   ngAfterViewInit() {
     var a = document.getElementById('premier').children;
     for (let index = 0; index < this.menuItems.length; index++) {
