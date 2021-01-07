@@ -104,7 +104,7 @@ export class DemandeComponent implements OnInit {
         let demande : Demande = {
           id: null,
           version: null,
-          terrains: this.terrain,
+          produit: this.terrain,
           personne: {
           id: this.prospect.id,
             version: this.prospect.version,

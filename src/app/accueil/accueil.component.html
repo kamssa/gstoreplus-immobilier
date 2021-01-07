@@ -11,8 +11,7 @@
             <div class="carousel-item"  *ngFor="let flash of flasTerrains;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
               <img [src]="flash.path" class="d-block w-100">
               <div class="carousel-caption">
-                <h3 style="color: #191919">{{flash.prix | number}}</h3>
-                <p style="color: #191919"> {{flash.description}}</p>
+                <p style="color:#fff"> {{flash.description}}</p>
               </div>
             </div>
 
