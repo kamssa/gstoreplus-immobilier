@@ -37,6 +37,14 @@ export class NavbarComponent implements OnInit {
     window.addEventListener('scroll', this.myFunction);
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     console.log(this.menuItems);
+    //console.log(this.authService.isUserLoggedIn.value);
+
+    this.authService.refreshNeeded.subscribe(() =>{
+this.getCurrentUser();
+    });
+    this.getCurrentUser();
+  }
+  getCurrentUser(){
     if (localStorage.getItem('currentUser')) {
       let token = localStorage.getItem('currentUser');
       let decode = this.helper.decodeToken(token);
@@ -81,6 +89,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+
   }
 
   openDash(id: number) {
