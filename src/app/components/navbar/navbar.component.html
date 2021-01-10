@@ -21,8 +21,6 @@
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav text-uppercase" id="premier" style="font-size: 13px;">
@@ -31,27 +29,30 @@
                 {{cpt.title}}
               </a>
             </li>
-            <li class="nav-item-t dropdown " *ngIf="personne">
+
+              <li class="nav-item-t">
+                <a class="nav-link" routerLink="/login" *ngIf="!personne">Se connecter</a>
+              </li>
+            <li class="nav-item-t dropdown" *ngIf="personne">
               <div class="example-button-container" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <button mat-mini-fab color="primary">
                   <span>{{premierC}} </span>
                 </button>
               </div>
               <div id="personne" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 20rem;">
                   <div class="card-body">
-                    <h2 class="card-title">{{personne.nomComplet}}</h2>
-                    <h3 class="card-subtitle">{{personne.email}}</h3>
+                    <p class="minuscule">{{personne.nomComplet}}</p>
+                    <p class="minuscul">{{personne.email}}</p>
                     <p class="card-text">
-                      <button mat-raised-button  class="btn btn-white"  (click)="openDash(personne.id)" >Mon tableau de bord</button>
+                      <button  class="btn btn-primary btnValider"  (click)="openDash(personne.id)" >Mon tableau de bord</button>
                     </p>
-                    <p><button mat-raised-button class="btn btn-white" (click)="logout()">Déconnexion</button></p>
+                    <p><button  class="btn btn-primary btnValider" (click)="logout()">Déconnexion</button></p>
                   </div>
                 </div>
               </div>
             </li>
           </ul>
-
         </div>
       </nav>
     </div>

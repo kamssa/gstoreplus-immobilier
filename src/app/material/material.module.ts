@@ -50,7 +50,8 @@ const  materialComponents = [
   MatDialogModule,
   MatSortModule,
   MatCheckboxModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatFormFieldModule
 
 ];
 

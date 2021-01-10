@@ -10,6 +10,8 @@ import {DemandeService} from "../service/demande.service";
 import {Demande} from "../models/Demande";
 import {TerrainAcheterService} from "../service/terrain-acheter.service";
 import {TerrainAcheter} from "../models/TerrainAcheter";
+import {Terrains} from "../models/Terrains";
+import {Personne} from "../models/Personne";
 
 @Component({
   selector: 'app-dashboard',
@@ -17,11 +19,10 @@ import {TerrainAcheter} from "../models/TerrainAcheter";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
-  terrain: Terrain;
+  terrains: Terrains;
   terrainId: number;
   value = 'Clear me';
   private mediaSub: Subscription;
-  terrains: Terrain[];
   terrainAcheter: TerrainAcheter;
   flasTerrains: FlashTerrain[];
   edit = false;
@@ -29,12 +30,11 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   latitude: number;
   longitude: number;
   zoom: number;
+  personne: Personne;
   constructor(private route: ActivatedRoute,
               private  router: Router,
               private terrainAcheterService: TerrainAcheterService,
-              private cdRef: ChangeDetectorRef,
-              private mediaObserver: MediaObserver,
-              private flashService: FlashService, ) { }
+              private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.route.paramMap.pipe(
@@ -42,7 +42,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
         this.terrainAcheterService.getTerrainAcheterByIdPersonne(+params.get('id')))
     ).subscribe(result => {
       this.terrainAcheter = result.body;
-      console.log('Voir les produit ramené', this.terrainAcheter.produit);
+      this.terrains = this.terrainAcheter.terrains;
+      this.personne = this.terrainAcheter.personne;
+      console.log('Voir les produit ramené', this.terrains);
     });
       this.setCurrentLocation();
   }

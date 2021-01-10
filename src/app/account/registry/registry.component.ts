@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Prospect} from '../../models/Prospect';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AuthService} from '../../service/auth.service';
-import {ProspectService} from "../../service/prospect.service";
-import {Membre} from "../../models/Membre";
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
-import {MembreService} from "../../service/membre.service";
+import {Membre} from '../../models/Membre';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import {MembreService} from '../../service/membre.service';
 
 @Component({
   selector: 'app-registry',
@@ -21,6 +19,7 @@ export class RegistryComponent implements OnInit {
   prospect: Prospect;
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  error = '';
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
@@ -29,17 +28,19 @@ export class RegistryComponent implements OnInit {
 
   ngOnInit(): void {
     this.registryForm = this.formBuilder.group({
-      nom: '',
-      prenom: '',
-      email: '',
-      password: '',
+      nom: new FormControl('', [Validators.required]),
+      prenom: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
       adresse: this.formBuilder.group({
-        telephone: ''
+        telephone:  new FormControl('', [Validators.required]),
       })
     });
 
   }
-
+  public hasError = (controlName: string, errorName: string) => {
+    return this.registryForm.controls[controlName].hasError(errorName);
+  }
   onSubmit() {
     console.log(this.registryForm.value);
     let  membre: Membre = {
@@ -53,19 +54,28 @@ export class RegistryComponent implements OnInit {
     console.log('voir membre', membre);
     localStorage.setItem('email', this.registryForm.value.email);
     localStorage.setItem('password', this.registryForm.value.password);
-    this.membreService.registraction(membre, 'Register').subscribe(resultat => {
-      if (resultat) {
-        this.prospect = resultat.body;
-        this.snackBar.open(' Merci pour votre inscription! verifiez votre boite mail ', '', {
-          duration: 5000,
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
+    this.membreService.getMembreByEmail(membre.email).subscribe(data => {
+      console.log(data.body.email);
+      if(data.body.email !== membre.email){
+        this.membreService.registraction(membre, 'Register').subscribe(resultat => {
+          if (resultat) {
+            this.prospect = resultat.body;
+            this.snackBar.open(' Merci pour votre inscription! verifiez votre boite mail ', '', {
+              duration: 5000,
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+
+            });
+          }
 
         });
+        this.router.navigate(['verification']);
+      }else {
+        this.error = "cet email est déjà utilisé";
       }
-
     });
-    this.router.navigate(['verification']);
+
+
 
   }
 
