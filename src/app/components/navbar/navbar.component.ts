@@ -14,10 +14,8 @@ export const ROUTES: RouteInfo[] = [
   { path: 'devis', title: 'Demande de dévis'},
   { path: '', title: 'Blog'},
   { path: '', title: 'Investissement'},
-  { path: '/contact', title: 'Contact'},
-  { path: '/login', title: 'Se connecter'}
-
-];
+  { path: '/contact', title: 'Contact'}
+  ];
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -40,7 +38,8 @@ export class NavbarComponent implements OnInit {
     //console.log(this.authService.isUserLoggedIn.value);
 
     this.authService.refreshNeeded.subscribe(() =>{
-this.getCurrentUser();
+    this.getCurrentUser();
+
     });
     this.getCurrentUser();
   }
@@ -89,6 +88,8 @@ this.getCurrentUser();
 
   logout() {
     this.authService.logout();
+    document.location.reload();
+
   }
 
   openDash(id: number) {

@@ -43,7 +43,9 @@ export class MembreService {
   getMembreById(id: number): Observable<Resultat<Membre>> {
     return this.http.get<Resultat<Membre>>(`${environment.apiUrl}/api/membre/${id}`);
   }
-
+  getMembreByEmail(email: string): Observable<Resultat<Membre>> {
+    return this.http.get<Resultat<Membre>>(`${environment.apiUrl}/api/getMembre/${email}`);
+  }
   membreCreer(res: Resultat<Membre>) {
     console.log('Membre a ete  creer correctement essaie source');
     this.clientCreerSource.next(res);
