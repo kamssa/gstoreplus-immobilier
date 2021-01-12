@@ -12,8 +12,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/accueil', title: 'Accueil'},
   { path: '/apropos', title: 'A propos'},
   { path: 'devis', title: 'Demande de dévis'},
-  { path: '', title: 'Blog'},
-  { path: '', title: 'Investissement'},
+  { path: '/blog', title: 'Blog'},
+  { path: '/investissement', title: 'Investissement'},
   { path: '/contact', title: 'Contact'}
   ];
 @Component({

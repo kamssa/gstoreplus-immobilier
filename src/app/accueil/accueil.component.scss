@@ -26,7 +26,8 @@
 }
 .card-icon i {
   font-size: 2.2rem;
-  padding-bottom: 15px;
+  padding-bottom: 2px;
+  padding-top: 10px;
 }
 .fa-thumbs-o-up{
   color: #93d7df;
@@ -119,6 +120,9 @@ ul li a {
   font-size: 0.875rem;
   color: #052052;
   font-weight: 600;
+}
+.carousel-caption{
+  font-size: 20px;
 }
 .btn-acheter {
   background-color: #ff000000;
@@ -218,14 +222,20 @@ ul li a {
   line-height: 0.5em;
   letter-spacing: 1.9px;
 }
+#elementID{
+  color: black;
+}
+#element{
+  color: black;
+}
 #elementID:hover{
-  color: #323232;
-  text-shadow: 1px 1px 1px #ccc;
+  color: #cc2127;
+  text-shadow: 1px 1px 1px #323232;
   font-size: 3.5em;
 }
 #element:hover{
-  color: #323232;
-  text-shadow: 1px 1px 1px #ccc;
+  color: #cc2127;
+  text-shadow: 1px 1px 1px #323232;
   font-size: 3.5em;
 }
 @media screen and (max-width: 800px){
@@ -248,4 +258,15 @@ ul li a {
 }
 .produit{
  text-decoration: underline;
+}
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+.carousel-indicators {
+  bottom: -50px;
+}
+.text-description {
+  font-size: 20px;
 }

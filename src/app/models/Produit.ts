@@ -1,6 +1,6 @@
 import {Categorie} from './Categorie';
-import {Ville} from "./Ville";
-import {Personne} from "./Personne";
+import {Ville} from './Ville';
+
 export class Produit {
   constructor(public id ?: number,
               public version?: number,
@@ -13,9 +13,12 @@ export class Produit {
               public numero?: string,
               public categorie?: Categorie,
               public ville?: Ville,
-              public personne?: Personne,
               public paye?: boolean,
               public abonneGeo?: boolean,
+              public unite?: string,
+              public note?: string,
+              public prixParMettreCarre?: string,
+              public superficie?: string,
               public type?: string
   ) {
   }
