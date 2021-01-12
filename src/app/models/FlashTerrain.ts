@@ -1,8 +1,6 @@
-
 import {Categorie} from './Categorie';
 import {Produit} from './Produit';
 import {Ville} from './Ville';
-import {Personne} from "./Personne";
 
 export class FlashTerrain extends Produit{
   constructor(public id ?: number,
@@ -16,11 +14,16 @@ export class FlashTerrain extends Produit{
               public numero?: string,
               public categorie?: Categorie,
               public ville?: Ville,
-              public personne?: Personne,
               public paye?: boolean,
               public abonneGeo?: boolean,
+              public unite?: string,
+              public note?: string,
+              public prixParMettreCarre?: string,
+              public superficie?: string,
               public type?: string
   ) {
-    super(id, version, libelle, description, prix, path, latitude, longitude, numero, categorie, ville, personne, paye, abonneGeo, type);
+    super(id, version, libelle, description, prix, path,
+      latitude, longitude, numero, categorie, ville, paye,
+      abonneGeo, unite, note, prixParMettreCarre, superficie, type);
   }
 }

@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   longitude: number;
   zoom: number;
   personne: Personne;
+  editMode = false;
   constructor(private route: ActivatedRoute,
               private  router: Router,
               private terrainAcheterService: TerrainAcheterService,
@@ -41,10 +42,14 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       switchMap((params: ParamMap) =>
         this.terrainAcheterService.getTerrainAcheterByIdPersonne(+params.get('id')))
     ).subscribe(result => {
-      this.terrainAcheter = result.body;
-      this.terrains = this.terrainAcheter.terrains;
-      this.personne = this.terrainAcheter.personne;
-      console.log('Voir les produit ramené', this.terrains);
+      if(result){
+        this.terrainAcheter = result.body;
+        this.terrains = this.terrainAcheter.terrains;
+        this.personne = this.terrainAcheter.personne;
+        this.editMode = true;
+        console.log('Voir les produit ramené', this.terrains);
+      }
+
     });
       this.setCurrentLocation();
   }
