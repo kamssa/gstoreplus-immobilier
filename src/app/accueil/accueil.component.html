@@ -14,17 +14,18 @@
                   <div class="col-md-7">
                     <img [src]="flash?.path" class="d-block w-100">
                   </div>
-                  <div class="col-md-5" style="padding-left: 0px;padding-right: 0px;">
+                  <div class="col-md-5">
                     <div class="text-description">
-                      <p>{{flash?.ville.libelle}}</p>
-                      <p>{{flash?.prix | number}} CFA</p>
-                      <p>{{flash?.prixParMettreCarre}}</p>
-                      <p>{{flash?.superficie}}</p>
-                      <p>{{flash?.categorie.nom}}</p>
-                      <p> {{flash?.description}}</p>
+                      <p><span>Ville :</span> {{flash?.ville.libelle}}</p>
+                      <p><span>Lotissement :</span> {{flash?.libelle}} </p>
+                      <p><span>Superficie :</span> {{flash?.superficie}}</p>
+                      <p><span>Document :</span>  {{flash?.categorie.description}}</p>
+                      <p><span>Prix :</span> {{flash?.prix | number}} CFA</p>
+                      <p class="description"> {{flash?.description}}</p>
                       </div>
                   </div>
                 </div>
+                <button mat-raised-button  color="accent" (click)="onDemande(flash.id)">Effectuer une demande</button>
               </div>
             </div>
 

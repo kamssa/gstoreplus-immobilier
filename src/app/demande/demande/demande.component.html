@@ -9,15 +9,11 @@
             </div>
             <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" >
               <mat-card class="box">
-                <mat-card-header class="card-header card-header-rose">
-                  <mat-card-title>{{terrain?.libelle}}</mat-card-title>
-                  <mat-card-subtitle>{{terrain?.description}}</mat-card-subtitle>
-                </mat-card-header>
 
                 <form class="example-form" [formGroup]="demandeForm" (ngSubmit)="onSubmit(demandeForm.value)">
                   <mat-card-content>
                     <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Selectinner un titre</mat-label>
+                      <mat-label>Selectinner une civilité</mat-label>
                       <mat-select placeholder="titre" formControlName="titre" (selectionChange)="greetTitre($event)">
                         <mat-option *ngFor="let t of titres" [value]=t.name>
                           {{t.libelle}}

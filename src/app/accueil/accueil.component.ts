@@ -68,4 +68,10 @@ export class AccueilComponent implements OnInit{
   changeVille(value: any) {
 
   }
+
+
+
+  onDemande(id: number) {
+    this.router.navigate(['demande', id]);
+  }
 }
