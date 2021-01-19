@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
               private  authService: AuthService) { }
 
   ngOnInit(): void {
-    window.addEventListener('scroll', this.myFunction);
+    //window.addEventListener('scroll', this.myFunction);
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     console.log(this.menuItems);
     //console.log(this.authService.isUserLoggedIn.value);
@@ -57,7 +57,7 @@ export class NavbarComponent implements OnInit {
 
     }
   }
-  myFunction() {
+/*   myFunction() {
     var navbar = document.getElementById("navbar");
     var sticky = navbar.offsetTop;
     if (window.pageYOffset > sticky) {
@@ -65,7 +65,7 @@ export class NavbarComponent implements OnInit {
     } else {
       navbar.classList.remove('sticky');
     }
-  }
+  } */
 
 
   ngAfterViewInit() {

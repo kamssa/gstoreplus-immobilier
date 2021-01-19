@@ -15,7 +15,7 @@
       min-height: 400px;
     }
 
-    .navbar-collapse{
+/*     .navbar-collapse{
         position: fixed;
         display: block;
         top: 0px;
@@ -89,7 +89,7 @@
         .nav-open &{
             @include transform-translate-x(0px);
         }
-    }
+    } */
 
     .nav-open{
         .navbar-translate{
@@ -490,7 +490,7 @@
     .navbar .navbar-collapse.collapse,
     .navbar .navbar-collapse.collapse.in,
     .navbar .navbar-collapse.collapsing{
-        display: none !important;
+        /* display: none !important; */
     }
 
     .off-canvas-sidebar .navbar .navbar-collapse.collapse,
@@ -794,7 +794,7 @@
     }
 
     .navbar-collapse.collapse{
-        height: 100% !important;
+        //height: 100% !important;
     }
     .navbar-collapse.collapse.in {
         display: block;

@@ -44,6 +44,7 @@ import {AgmCoreModule} from "@agm/core";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {FoncierComponent} from "./foncier/foncier/foncier.component";
 import { LoginComponent } from './account/login/login.component';
+import { MonDashboardComponent } from './mon-dashboard/mon-dashboard.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -74,7 +75,8 @@ registerLocaleData(localeFr);
     InvestissementComponent,
     DashboardComponent,
     FoncierComponent,
-    LoginComponent
+    LoginComponent,
+    MonDashboardComponent
 
   ],
   imports: [

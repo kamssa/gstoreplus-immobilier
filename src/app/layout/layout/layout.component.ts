@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
@@ -22,9 +22,21 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.navBar();
   }
-
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(event) {
+    this.navBar();
+  }
+  navBar() {
+    var header = document.getElementById('header');
+    if (window.pageYOffset > 1) {
+      header.classList.add('sticky');
+    } else {
+      header.classList.remove('sticky');
+      header.classList.add('sticky1');
+    }
+  }
   ngAfterViewInit() {
     this.runOnRouteChange();
   }

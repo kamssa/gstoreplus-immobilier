@@ -34,9 +34,6 @@
 }
 .new{
   font-size: 1.4rem;
-  font-weight: 600;
-  color: #052052;
-  border-bottom: 2px solid #052052 !important;
   margin-right: 13px;
 }
 .para {
@@ -267,13 +264,46 @@ ul li a {
 .carousel-indicators {
   bottom: -50px;
 }
-.text-description {
-  font-size: 20px;
+.card-haud{
+  border: 1px solid #ebebeb;
 }
-.description{
+.text-description {
+  animation: fadeIn ease 10s;
+  transition: 0.5s;
+  position: relative;
+  z-index: 0;
+  padding: 40px;
+  box-shadow: 0 0.75rem 1.5rem rgba(23, 26, 41, 0.02);
+}
+/* .text-description::before{
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "";
+  z-index: -1;
+  transition: 0.5s;
+  background: #5e72e4;
+}
+.text-description:hover::before{
+  width: 100%;
+} */
+.text-description .titre{
+    font-size: 18px;
+    font-weight: 600;
+    color: #052052;
+    text-decoration: none;
+}
+.text-description p{
+  font-size: 0.875rem;
+  color: #444444;
+}
+/* .description{
   border-width:1px;
   border-style:none;
-  border-color:black;}
+  border-color:black;
+} */
 p{
   margin-top: 10px;
 }

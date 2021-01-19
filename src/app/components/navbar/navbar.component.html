@@ -13,16 +13,16 @@
   </div>
   <div class="row pt-2">
     <div class="col-md-12" id="header">
-      <nav class="navbar  navbar-expand-lg navbar-light " id="navbar">
+      <nav class="navbar  navbar-expand-lg navbar-light " >
         <a class="navbar-brand " href="#">
           <div class="logo">
             <img src="./assets/Images/Image1.jpeg" class="img-fluid" alt="">
           </div>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
           <ul class="navbar-nav text-uppercase" id="premier" style="font-size: 13px;">
             <li *ngFor="let cpt of menuItems;let i=index" class="nav-item">
               <a [routerLink]="[cpt.path]" id="change_{{i}}" (click)="active(i)" class="nav-link b lien">
@@ -31,7 +31,7 @@
             </li>
 
               <li class="nav-item-t">
-                <a class="nav-link" routerLink="/login" *ngIf="!personne">Se connecter</a>
+                <a class="nav-link lien" routerLink="/login" *ngIf="!personne">Se connecter</a>
               </li>
             <li class="nav-item-t dropdown" *ngIf="personne">
               <div class="example-button-container" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

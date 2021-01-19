@@ -17,6 +17,7 @@ import {DemandeDevidComponent} from "../../demande-devid/demande-devid.component
 import {InvestissementComponent} from "../../investissement/investissement.component";
 import {LoginComponent} from "../../account/login/login.component";
 import {RegistryComponent} from "../../account/registry/registry.component";
+import { MonDashboardComponent } from 'src/app/mon-dashboard/mon-dashboard.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -37,5 +38,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'devis', component: DemandeDevidComponent },
   { path: 'investissement', component: InvestissementComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistryComponent }
+  { path: 'register', component: RegistryComponent },
+  { path: 'mon-dashboard', component: MonDashboardComponent }
   ];

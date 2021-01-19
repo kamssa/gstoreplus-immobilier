@@ -1,7 +1,8 @@
-.navbar {
-    border: 0;
+/*     border: 0;
     border-radius: $border-radius-base;
-    margin:0;
+    margin:0; */
+/* .navbar {
+
     @include navbar-colors($white-color, $navbar-color);
     form{
       width: 500px;
@@ -115,12 +116,12 @@
     .navbar-brand {
         position: relative;
         color: inherit;
-        height: 50px;
+        //height: 50px;
         font-size: $navbar-brand-font-size - 0.125;
         line-height: 30px;
         padding: $padding-general-y 0;
         font-weight: 300;
-        margin-left: 1rem;
+        margin-left: 1rem !important;
     }
 
     > .container {
@@ -251,4 +252,4 @@
       }
     }
   }
-}
+} */
