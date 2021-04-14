@@ -8,13 +8,9 @@ import {MediaObserver} from "@angular/flex-layout";
 import {FlashService} from "../../service/flash.service";
 import {switchMap} from "rxjs/operators";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {Client} from "../../models/Client";
-import {ClientService} from "../../service/client.service";
 import {Prospect} from "../../models/Prospect";
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
 import {ProspectService} from "../../service/prospect.service";
-import {Categorie} from "../../models/Categorie";
-import {Ville} from "../../models/Ville";
 import {Demande} from "../../models/Demande";
 import {DemandeService} from "../../service/demande.service";
 
@@ -38,6 +34,7 @@ export class DemandeComponent implements OnInit {
   prospect: Prospect;
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  password: string = 'gstoreplus';
   titre: string;
   titres = [
     {libelle: 'Mlle', name: 'Mlle'},
@@ -74,29 +71,24 @@ export class DemandeComponent implements OnInit {
       nom: '',
       prenom: '',
       email: '',
-      password: '',
+      password: this.password,
       fonction: '',
       adresse: this.fb.group({
         telephone: ''
       })
     });
-
   }
-
   onSubmit(demandeFormValue) {
-
     console.log(this.demandeForm.value);
     let  prospect: Prospect = {
       titre: this.titre,
       nom: demandeFormValue.nom,
       prenom: demandeFormValue.prenom,
       email: demandeFormValue.email,
-      password: demandeFormValue.password,
       fonction: demandeFormValue.fonction,
       adresse: demandeFormValue.adresse,
       type:'PR'
     };
-
     this.prospectService.registraction(prospect, 'demande').subscribe(resultat => {
       console.log(' voir le prospect retourne', resultat.body1.id);
       if (resultat){
@@ -118,15 +110,12 @@ export class DemandeComponent implements OnInit {
               duration: 5000,
               horizontalPosition: this.horizontalPosition,
               verticalPosition: this.verticalPosition,
-
             });
             this.router.navigate(['accueil']);
           }
-
         });
       }
     });
-
   }
   greetTitre(event) {
     console.log(event.value);
