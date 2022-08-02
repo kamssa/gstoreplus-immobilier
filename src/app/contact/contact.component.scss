@@ -1,13 +1,85 @@
-.container{
-  margin-top: 100px;
+a{
+  text-decoration: none;
+  color: black;
 }
-.bouton{
-  margin-top: 30px;
-  margin-top: 20px;
-  -moz-border-radius:7px;
-  -webkit-border-radius:7px;
-  border-radius:7px;
+
+a:hover{
+  color: blue;
 }
-.card{
-  z-index: 0;
+span{
+  font-size: 12px!important;
+  color: black !important;
+}
+h5{
+  font-size: 12px!important;
+  color: black !important;
+
+}
+p{
+  font-size: 12px!important;
+  color: black !important;
+}
+.login_btn {
+  background-color: #d50000;
+  color: #FFFFFF;
+  width: 100%;
+  font-size: 10px!important;
+
+}
+
+
+.login_btn {
+  background-color: #d50000;
+  color: #FFFFFF;
+  width: 100%;
+  font-size: 10px!important;
+
+}
+.login_container {
+  padding: 0 3rem;
+}
+
+input:focus{
+  border-color: #d50000 !important;
+ // box-shadow: 0 0 5px #d50000 !important;
+  text-decoration: none;
+
+
+}
+input{
+  color: white;
+
+}
+#prenom::placeholder{
+  color: blue;
+  font-size: 12px;
+}
+
+#email::placeholder{
+  color: blue;
+  font-style: italic;
+  font-size: 12px;
+
+}
+#objet::placeholder{
+  color: blue;
+  font-style: italic;
+  font-size: 12px;
+
+}
+#message::placeholder{
+  color: blue;
+  font-style: italic;
+  font-size: 12px;
+
+}
+#scroll_to_top {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  bottom: 50px;
+  right: 30px;
+}
+#scroll_to_top img {
+  width: 25px;
 }

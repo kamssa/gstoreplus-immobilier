@@ -1,17 +1,37 @@
-.cadreApropos {
-  /*     min-height: 620px;
-      background-color: #dceaf5 !important; */
+h1{
+  text-decoration: underline;
 }
-.titreApropos {
-  position: relative;
-  color: #000000 !important;
-  font-size: 1.815rem;
-  font-weight: 600;
+p{
+  font-size: 12px!important;
+  color: black;
 }
-.Titrepropos {
-  font-weight: 600 !important;
-  font-size: 1.255rem;
-  line-height: 1.5;
-  color: #444444;
-  margin-bottom: .625rem !important;
+span{
+  font-size: 12px!important;
+  color: black;
+}
+h1{
+  font-size: 16px!important;
+
+}
+h3{
+  font-size: 12px!important;
+  color: black;
+}
+li{
+  font-size: 12px!important;
+  color: black !important;
+}
+h4{
+  font-size: 14px!important;
+  color: #d50000 !important;
+}
+#scroll_to_top {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  bottom: 50px;
+  right: 30px;
+}
+#scroll_to_top img {
+  width: 25px;
 }

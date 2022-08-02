@@ -21,6 +21,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSortModule} from '@angular/material/sort';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatStepperModule} from '@angular/material/stepper';
 
 const  materialComponents = [
   MatToolbarModule,
@@ -51,7 +52,8 @@ const  materialComponents = [
   MatSortModule,
   MatCheckboxModule,
   MatToolbarModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatStepperModule
 
 ];
 

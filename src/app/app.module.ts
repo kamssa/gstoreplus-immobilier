@@ -37,13 +37,14 @@ import { ActualiteComponent } from './actualite/actualite.component';
 import { AllterrainComponent } from './terrain/allterrain/allterrain.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemandeDevidComponent } from './demande-devid/demande-devid.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { InvestissementComponent } from './investissement/investissement.component';
-import {AgmCoreModule} from "@agm/core";
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {FoncierComponent} from "./foncier/foncier/foncier.component";
+import {AgmCoreModule} from '@agm/core';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {FoncierComponent} from './foncier/foncier/foncier.component';
 import { LoginComponent } from './account/login/login.component';
+import { PasswordOublierComponent } from './account/password-oublier/password-oublier.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -74,7 +75,8 @@ registerLocaleData(localeFr);
     InvestissementComponent,
     DashboardComponent,
     FoncierComponent,
-    LoginComponent
+    LoginComponent,
+    PasswordOublierComponent,
 
   ],
   imports: [

@@ -40,7 +40,7 @@
   margin-right: 100px;
 }
 .carde-login label {
-  font-size: 0.875rem;
+  font-size: 10px;
 }
 /*.inputLog {
   //box-shadow: 0 3.2px rgba(208, 208, 208, 0.25);
@@ -58,7 +58,7 @@
 }
 .btnValider {
   width: 100%;
-  background-color:#7d72ff !important;
+  background-color:#d50000 !important;
   border-color:#7d72ff !important;
 }
 .btnValider:active {
@@ -68,10 +68,24 @@
   box-shadow: none !important;
 }
 .btnValider:hover {
-  background: transparent !important;
-  color:#7d72ff !important;
+  background: #d50000 !important;
+  color: black !important;
 }
 .loginText{
   color: #7d72ff !important;
   font-size: 0.875rem;
+}
+.example-full-width{
+  color: black!important;
+}
+.login_btn {
+  background-color: #d50000 !important;
+  color: #FFFFFF;
+  width: 100%;
+  font-size: 10px!important;
+
+}
+.login_container {
+  padding: 0 3rem;
+  color: #d50000;
 }

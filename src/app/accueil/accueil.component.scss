@@ -1,18 +1,45 @@
+.container{
+margin-top: 0px;
+
+}
+#scroll_to_top
+{
+  position: fixed;
+  bottom : 10px;
+  right: -100px;
+  opacity: 0.5;
+}
+mat-label{
+  font-size: 12px !important;
+  color: black !important;
+}
 .carousel-inner img{
-  max-height: 370px !important;
+ /* max-height: 370px !important;*/
   /*     background-image: url('/assets/Images/font1.jpg');
       background-size: cover;
       background-position: center top; */
 }
+.card-terrain h6 {
+  font-size: 10px !important;
+  color: black !important;
+}
+.card-terrain p {
+  font-size: 10px !important;
+  color: black !important;
+
+
+}
 .row-icon{
-  margin-top: -45px;
+  margin-top: -30px;
   margin-left: 10px;
   margin-right: 10px;
+
 }
 .card-icon{
   box-shadow: 0 1px 1px 0 rgba(60,75,100,.14), 0 2px 1px -1px rgba(60,75,100,.12), 0 1px 3px 0 rgba(60,75,100,.2);
   border-radius: 0px;
   border: 0px;
+
 }
 .card-icon:hover{
   transition: 0.3s;
@@ -21,8 +48,9 @@
 .card-icon h6{
   color: #052052;
   line-height: 1.5;
-  font-size: 1.0625rem;
-  font-family: inherit;
+  font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: oblique;
 }
 .card-icon i {
   font-size: 2.2rem;
@@ -40,7 +68,7 @@
   margin-right: 13px;
 }
 .para {
-  color: #052052;
+  color: #d50000;
   font-weight: 600;
   font-size: 0.875rem;
 }
@@ -66,10 +94,10 @@
   letter-spacing: 1px;
 }
 .trait-produit{
-  border-top: 4px solid #1e3663;
+  border-top: 4px solid #d50000;
 }
 .nos-produits{
-  color: #05206d;
+  color: #d50000;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 22.89px;
@@ -112,12 +140,12 @@ ul li a {
   transform: translateY(-2px);
 }
 .card-terrain h6{
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #052052;
   letter-spacing: 1px;
 }
 .card-terrain p {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #052052;
   font-weight: 600;
 }
@@ -128,8 +156,9 @@ ul li a {
   background-color: #ff000000;
   font-weight: 600;
   border-radius: 0.375rem;
-  border-color: #052052;
+  border-color: #d50000;
   color: #052052 !important;
+  font-size: 12px !important;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
@@ -137,18 +166,18 @@ ul li a {
   box-shadow: 0 7px 14px rgba(50,50,93,0.11),
   0 3px 6px rgba(0,0,0,0.08);
   transform: translateY(-1px);
-  border-color: #052052;
-  background-color:#052052;
+  border-color: #d50000;
+  background-color:#d50000;
   color: white !important;
 }
 .btn-acheter:active {
-  border-color: #052052 !important;
+  border-color: #d50000 !important;
   color: white !important;
 }
 .btn-acheter:focus {
-  border-color: #052052 !important;
+  border-color: #d50000 !important;
   color: white !important;
-  background-color:#052052 !important;
+  background-color:#d50000 !important;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 .badge-corner {
@@ -190,7 +219,7 @@ ul li a {
 }
 .grande-gestoci{
   min-height: 330px;
-  background-image: url('/assets/Images/font2.jpg');
+  background-image: url('/assets/Images/luxury-home (2).jpg');
   background-size: cover;
   background-position: center center;
 }
@@ -222,22 +251,7 @@ ul li a {
   line-height: 0.5em;
   letter-spacing: 1.9px;
 }
-#elementID{
-  color: black;
-}
-#element{
-  color: black;
-}
-#elementID:hover{
-  color: #cc2127;
-  text-shadow: 1px 1px 1px #323232;
-  font-size: 3.5em;
-}
-#element:hover{
-  color: #cc2127;
-  text-shadow: 1px 1px 1px #323232;
-  font-size: 3.5em;
-}
+
 @media screen and (max-width: 800px){
   .card-p {
     margin-bottom: 21px;
@@ -258,15 +272,16 @@ ul li a {
 }
 .produit{
  text-decoration: underline;
+
 }
-.carousel-indicators li {
+/*.carousel-indicators li {
   width: 10px;
   height: 10px;
   border-radius: 100%;
-}
-.carousel-indicators {
+}*/
+/*.carousel-indicators {
   bottom: -50px;
-}
+}*/
 .text-description {
   font-size: 20px;
 }
@@ -277,10 +292,66 @@ ul li a {
   width: 300px;
 }
 p{
-  margin-top: 10px;
+  margin-top: 12px;
 }
 p span{
   text-decoration: underline;
   color: #0d47a1;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.card-terrain img:hover{
+  -webkit-transform:scale(1.25); /* Safari and Chrome */
+  -moz-transform:scale(1.25); /* Firefox */
+  -ms-transform:scale(1.25); /* IE 9 */
+  -o-transform:scale(1.25); /* Opera */
+  transform:scale(1.25);
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.example-full-width {
+  width: 100%;
+}
+#bien::placeholder{
+  color: blue;
+  font-size: 12px;
+  font-style: italic;
+
+}
+
+#localisation::placeholder{
+  color: blue;
+  font-style: italic;
+  font-size: 12px;
+}
+#budget::placeholder{
+  color: blue;
+  font-style: italic;
+  font-size: 12px;
+}
+.login_btn {
+  background-color: #d50000;
+  color: #FFFFFF;
+  width: 100%;
+  font-size: 10px!important;
+
+}
+.login_container {
+  padding: 0 3rem;
+}
+.login_btn:hover{
+  border-color: #fff3e0 !important;
+  box-shadow: 0 0 5px #0d47a1 !important;
+  background-color: #cc2127;
+
+}
+mat-option{
+  font-size: 12px !important;
+}
+.carousel-inner{
+  border:1px solid red;
+  //height: 300px;
+}
+

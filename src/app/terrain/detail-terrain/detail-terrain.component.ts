@@ -64,7 +64,7 @@ export class DetailTerrainComponent implements  OnInit, AfterViewInit, OnDestroy
     }
   }
 
-  onDemande(id: number) {
-    this.router.navigate(['demande', id]);
+  onDemande() {
+    this.router.navigate(['/demande']);
   }
 }

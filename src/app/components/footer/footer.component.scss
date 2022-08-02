@@ -1,18 +1,20 @@
 .grande{
-  background-color: #052057;
+  background-color: #0e0d0d;
+
 }
 .grande .col-md-4 img {
   height: 6rem;
 }
 .grande h6{
-  font-weight: 600;
+
   color: white;
+  font-size: 12px;
 }
 .list li {
   color: white;
-  font-size: 0.875rem;
+  font-size: 12px;
   line-height: 36px;
-  font-weight: 600;
+
 }
 span img {
   height: 20px;
@@ -20,7 +22,6 @@ span img {
 }
 .paiement p {
   color: white;
-  font-weight: 600;
   font-size: 0.875rem;
   padding-top: 10px;
 }
@@ -29,11 +30,9 @@ span img {
 }
 .copyright p {
   color: white;
-  font-weight: 600;
   font-size: 0.875rem;
 }
 .copyright .text {
-  font-weight: 600;
   font-size: 0.715rem;
   color: #131313;
   text-align: end;

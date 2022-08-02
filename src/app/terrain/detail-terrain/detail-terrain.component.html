@@ -1,37 +1,69 @@
-<div class="cadre">
-  <div class="container">
-    <div class="card login-card ">
+<div class="container">
+  <mat-horizontal-stepper style="background-color: #9e9e9e">
+    <mat-step>
+      <ng-template matStepLabel>Ebrah</ng-template>
+      <br><br><br>
       <div class="row">
-        <div class="col-md-7">
-          <img [src]="terrain?.path" class="img-fluid image1" alt="">
+        <div class="col-md-5">
+          <div class="main-div">
+            <mat-card class="example-card">
+              <mat-card-content>
+                <img src="./assets/Images/t3.jpg" class="card-img-top" alt="">
+              </mat-card-content>
+            </mat-card>
+          </div>
         </div>
-        <div class="col-md-5" style="padding-left: 0px;padding-right: 0px;">
-          <div class="card-body">
-            <div class="brand-wrapper">
-              <img src="./assets/img/logo.png" class="img-fluid image2" alt="">
+        <div class="col-md-7">
+          <h2 style="margin-top: 70px">Ebrah</h2><br>
+          <div style="font-size: 17px;">
+           <span>
+             <i class="fa fa-star" aria-hidden="true" style="color: #ff6a00;"></i>
+             <i class="fa fa-star" aria-hidden="true" style="color: #ff6a00;"></i>
+             <i class="fa fa-star" aria-hidden="true" style="color: #ff6a00;"></i>
+             <i class="fa fa-star-half-o" aria-hidden="true" style="color: #ff6a00;"></i>
+           </span>
+          </div><br>
+          <div>
+            description
+          </div>
+          <hr>
+          <br>
+          <div class="zoom1">
+            <div class=" text-center pt-3">
+              <div class=" shadow-lg p-3 mb-5 bg-white rounded demande" style="background-color: #d50000"
+                   (click)="onDemande()">EFFECTUER UNE DEMANDE</div>
             </div>
-            <h1 class="text-description">{{terrain?.ville.libelle}}</h1>
-            <p>{{terrain?.description}}</p>
-            <!--<p>{{terrain?.prix | number}}</p>-->
-            <div class="text-center pt-3">
-                <button mat-raised-button  color="primary" (click)="onDemande(terrain.id)">Effectuer une demande</button>
-              </div>
+          </div>
+          <div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- app.component.html -->
-  <div class="container">
-    <agm-map
-      [latitude]="latitude"
-      [longitude]="longitude"
-      [zoom]="zoom" >
-      <agm-marker
-        [latitude]="latitude"
-        [longitude]="longitude"></agm-marker>
-    </agm-map>
-
-  </div>
-
+      <div class="container">
+        <div class="row">
+          <div class="container">
+            <table class="table">
+              <tbody>
+              <tr>
+                <th scope="row"><i class="fa fa-hand-holding-box"></i>&nbsp;Programme</th>
+                <td>Ebrah</td>
+                <th scope="row"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Localisation</th>
+                <td>Bingerville</td>
+              </tr>
+              <tr>
+                <th scope="row"><i class="fad fa-receipt"></i>&nbsp;Terrain</th>
+                <td>500 m²</td>
+                <th scope="row"><i class="fa fa-home" aria-hidden="true"></i>&nbsp; Surface utilisée</th>
+                <td>500 m²</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div><br>
+    </mat-step>
+  </mat-horizontal-stepper>
 </div>
+
+
+
+

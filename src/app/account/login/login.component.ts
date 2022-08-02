@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   isuAth: boolean;
+  test: Date = new Date();
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
@@ -88,5 +89,9 @@ export class LoginComponent implements OnInit {
         this.error = "email ou mot de passe oublié";
         this.loading = false;
       });
+  }
+
+  passeOublie() {
+
   }
 }
