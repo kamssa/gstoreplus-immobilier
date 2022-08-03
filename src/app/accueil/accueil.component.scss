@@ -315,8 +315,8 @@ p span{
   width: 100%;
 }
 #bien::placeholder{
-  color: blue;
-  font-size: 12px;
+  color: blue !important;
+  font-size: 20px !important;
   font-style: italic;
 
 }
@@ -324,12 +324,12 @@ p span{
 #localisation::placeholder{
   color: blue;
   font-style: italic;
-  font-size: 12px;
+  font-size: 20px;
 }
 #budget::placeholder{
   color: blue;
   font-style: italic;
-  font-size: 12px;
+  font-size: 20px;
 }
 .login_btn {
   background-color: #d50000;

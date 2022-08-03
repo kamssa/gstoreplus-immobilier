@@ -1,4 +1,10 @@
 <div class="wrapper">
+  <div *ngIf="isMac()">
+    <div class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+
   <div class="main-panel">
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
