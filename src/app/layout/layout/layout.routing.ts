@@ -18,6 +18,7 @@ import {LoginComponent} from "../../account/login/login.component";
 import {RegistryComponent} from "../../account/registry/registry.component";
 import {FoncierComponent} from "../../foncier/foncier/foncier.component";
 import {ImmobilierComponent} from "../../immobilier/immobilier/immobilier.component";
+import {ConnexionComponent} from "../../account/connexion/connexion.component";
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -42,7 +43,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'investissement', component: InvestissementComponent },
   { path: 'foncier', component: FoncierComponent },
   { path: 'immobilier', component: ImmobilierComponent },
-  { path: 'connexion', component: LoginComponent },
+  { path: 'connexion', component: ConnexionComponent },
   { path: 'registry', component: RegistryComponent },
   { path: 'detail', component: DetailTerrainComponent },
   { path: 'demande', component: DemandeComponent }

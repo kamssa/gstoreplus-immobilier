@@ -15,68 +15,29 @@ import { ConnexionComponent } from './account/connexion/connexion.component';
 import { RegistryComponent } from './account/registry/registry.component';
 import { DemandeComponent } from './demande/demande/demande.component';
 import { ListeTerrainComponent } from './terrain/liste-terrain/liste-terrain.component';
-import {FlexLayoutModule} from "@angular/flex-layout";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { DetailTerrainComponent } from './terrain/detail-terrain/detail-terrain.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { VerificationComponent } from './demande/verification/verification.component';
-import { VilleComponent } from './ville/ville.component';
-import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
-import {JwtInterceptor} from "./helper/jwt.interceptor";
-import {ErrorInterceptor} from "./helper/error.interceptor";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material/core";
-import {APP_DATE_FORMATS, AppDateAdapter} from "./helper/format-datepicker";
-import { CreateCompteComponent } from './account/create-compte/create-compte.component';
-import { VerificationRegisterComponent } from './verification-register/verification-register.component';
-import { AproposComponent } from './apropos/apropos.component';
-import { TerrainVilleComponent } from './terrain/terrain-ville/terrain-ville.component';
-import { ActualiteComponent } from './actualite/actualite.component';
-import { AllterrainComponent } from './terrain/allterrain/allterrain.component';
-import { ContactComponent } from './contact/contact.component';
-import { DemandeDevidComponent } from './demande-devid/demande-devid.component';
+import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
+import {JwtInterceptor} from './helper/jwt.interceptor';
+import {ErrorInterceptor} from './helper/error.interceptor';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {APP_DATE_FORMATS, AppDateAdapter} from './helper/format-datepicker';
+
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { InvestissementComponent } from './investissement/investissement.component';
+
 import {AgmCoreModule} from '@agm/core';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {FoncierComponent} from './foncier/foncier/foncier.component';
-import { LoginComponent } from './account/login/login.component';
-import { PasswordOublierComponent } from './account/password-oublier/password-oublier.component';
+
 registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
     AppComponent,
-    TerrainComponent,
-    TerrainDetailComponent,
-    ImmobilierComponent,
-    AccueilComponent,
-    BlogComponent,
-    AccountComponent,
-    ConnexionComponent,
-    RegistryComponent,
-    DemandeComponent,
-    ListeTerrainComponent,
-    DetailTerrainComponent,
-    VerificationComponent,
-    VilleComponent,
-    CreateCompteComponent,
-    VerificationRegisterComponent,
-    AproposComponent,
-    TerrainVilleComponent,
-    ActualiteComponent,
-    AllterrainComponent,
-    ContactComponent,
-    DemandeDevidComponent,
-    SidebarComponent,
-    InvestissementComponent,
-    DashboardComponent,
-    FoncierComponent,
-    LoginComponent,
-    PasswordOublierComponent,
+
 
   ],
   imports: [

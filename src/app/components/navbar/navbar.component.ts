@@ -11,12 +11,12 @@ declare interface RouteInfo {
   title: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/accueil', title: 'Accueil'},
-  { path: '/apropos', title: 'A propos'},
+  { path: 'accueil', title: 'Accueil'},
+  { path: 'apropos', title: 'A propos'},
   { path: 'investissement', title: 'Investissement'},
-  { path: '/blog', title: 'Blog'},
-  { path: '/contact', title: 'Contact'},
-  { path: '/connexion', title: 'Se connecter'}
+  { path: 'blog', title: 'Blog'},
+  { path: 'contact', title: 'Contact'},
+  { path: 'connexion', title: 'Se connecter'}
   ];
 @Component({
   selector: 'app-navbar',

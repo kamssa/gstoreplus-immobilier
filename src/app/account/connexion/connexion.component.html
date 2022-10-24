@@ -4,8 +4,6 @@
     <h1 style="text-align: center;color: white;padding: 60px;padding-top: 80px;">Connexion</h1>
   </div>
 </div><br><br>
-
-
   <div class="row">
     <div class="col-md-12">
       <div id="intro" class="bg-image shadow-2-strong">
@@ -53,10 +51,13 @@
                   <div style="text-align: center;">
                     <button type="submit" class="btn btn-block" style="background-color: #302244;color: white;">
                       Se connecter</button>
+                    <a style="position: relative; top:80px; font-style: italic; color: blue">
+                      Ou créez un compte si vous n'en avez pas. <a routerLink="/registry">ici</a></a>
                   </div>
+
                   <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                   <div *ngIf="error" class="btn login_btn">{{error}}</div>
-                  <p routerLink="/registry">S'inscrire</p>
+
                 </form>
                 <div>
 

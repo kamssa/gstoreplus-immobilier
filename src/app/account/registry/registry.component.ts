@@ -71,7 +71,7 @@ export class RegistryComponent implements OnInit {
         });
         this.router.navigate(['verification']);
       }else {
-        this.error = "cet email est déjà utilisé";
+        this.error = 'cet email est déjà utilisé';
       }
     });
 
