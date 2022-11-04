@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute,  Router} from "@angular/router";
-import {MembreService} from "../service/membre.service";
-import {Membre} from "../models/Membre";
-import {LocalStorage} from "@ngx-pwa/local-storage";
-import {AuthService} from "../service/auth.service";
+import {ActivatedRoute,  Router} from '@angular/router';
+import {LocalStorage} from '@ngx-pwa/local-storage';
+import {AuthService} from '../service/auth.service';
+import {Client} from '../models/Client';
+import {RegistrationService} from "../service/registration.service";
+import {LoginRequest} from "../models/loginRequest";
 
 @Component({
   selector: 'app-verification-register',
@@ -11,20 +12,20 @@ import {AuthService} from "../service/auth.service";
   styleUrls: ['./verification-register.component.scss']
 })
 export class VerificationRegisterComponent implements OnInit {
-membre: Membre;
+  client: Client;
   login: string;
   code: number;
   values = '';
   email: string;
   constructor(private route: ActivatedRoute,
               private  router: Router,
-              private  membreService: MembreService,
+              private registrationService: RegistrationService,
               private  authService: AuthService,
               private localStorage: LocalStorage) { }
 
   ngOnInit(): void {
     console.log('Called Constructor');
-    this.email = localStorage.getItem("email");
+    this.login = localStorage.getItem('login');
 
   }
   onKey(event: any) { // without type info
@@ -33,19 +34,17 @@ membre: Membre;
   }
   onClick() {
     console.log('voir ce qui se passe');
-    this.membreService.registractionConfirm(this.email, this.code).subscribe(res => {
+    this.registrationService.registractionConfirm(this.login, this.code).subscribe(res => {
     console.log(res);
-    this.membre = res.body;
-    let membre: Membre = {
-      email: this.membre.email,
+    this.client = res.body;
+    const loginRequest: LoginRequest = {
+      loginOrTelephone: this.client.login,
       password: localStorage.getItem('password'),
-      type:'ME'
     };
-    console.log(membre);
-    if(res.body){
-     this.authService.login(membre).subscribe(data => {
+    if (res.body){
+     this.authService.login(loginRequest).subscribe(data => {
        localStorage.removeItem('password');
-       localStorage.removeItem('email');
+       localStorage.removeItem('login');
        console.log('auth ok');
        if (data){
          this.router.navigate(['accueil']);

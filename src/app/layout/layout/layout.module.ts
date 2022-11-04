@@ -18,8 +18,7 @@ import {DemandeComponent} from "../../demande/demande/demande.component";
 import {ListeTerrainComponent} from "../../terrain/liste-terrain/liste-terrain.component";
 import {DetailTerrainComponent} from "../../terrain/detail-terrain/detail-terrain.component";
 import {VerificationComponent} from "../../demande/verification/verification.component";
-import {VilleComponent} from "../../ville/ville.component";
-import {CreateCompteComponent} from "../../account/create-compte/create-compte.component";
+import {VilleComponent} from '../../ville/ville.component';
 import {VerificationRegisterComponent} from "../../verification-register/verification-register.component";
 import {AproposComponent} from "../../apropos/apropos.component";
 import {TerrainVilleComponent} from "../../terrain/terrain-ville/terrain-ville.component";
@@ -31,7 +30,6 @@ import {SidebarComponent} from "../../sidebar/sidebar.component";
 import {InvestissementComponent} from "../../investissement/investissement.component";
 import {DashboardComponent} from "../../dashboard/dashboard.component";
 import {FoncierComponent} from "../../foncier/foncier/foncier.component";
-import {LoginComponent} from "../../account/login/login.component";
 import {PasswordOublierComponent} from "../../account/password-oublier/password-oublier.component";
 
 @NgModule({
@@ -58,7 +56,6 @@ import {PasswordOublierComponent} from "../../account/password-oublier/password-
     DetailTerrainComponent,
     VerificationComponent,
     VilleComponent,
-    CreateCompteComponent,
     VerificationRegisterComponent,
     AproposComponent,
     TerrainVilleComponent,
@@ -70,7 +67,6 @@ import {PasswordOublierComponent} from "../../account/password-oublier/password-
     InvestissementComponent,
     DashboardComponent,
     FoncierComponent,
-    LoginComponent,
     PasswordOublierComponent,
 
   ]

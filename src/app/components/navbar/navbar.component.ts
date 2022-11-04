@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {MembreService} from "../../service/membre.service";
 import {Personne} from "../../models/Personne";
 import {AuthService} from "../../service/auth.service";
 import {Location} from '@angular/common';
+import {ClientService} from "../../service/client.service";
+import {RegistrationService} from "../../service/registration.service";
+import {Client} from "../../models/Client";
 
 declare interface RouteInfo {
   path: string;
@@ -25,7 +27,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class NavbarComponent implements OnInit {
   menuItems: RouteInfo[];
-  personne: Personne;
+  client: Client;
   nom: string;
   premierC: string;
   location: Location;
@@ -35,7 +37,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private router: Router,
               private helper: JwtHelperService,
-              private  membreService: MembreService,
+              private registrationService: RegistrationService,
               private  authService: AuthService) { }
 
   ngOnInit(): void {
@@ -51,18 +53,22 @@ export class NavbarComponent implements OnInit {
     this.getCurrentUser();
   }
   getCurrentUser(){
-    if (localStorage.getItem('currentUser')) {
-      let token = localStorage.getItem('currentUser');
-      let decode = this.helper.decodeToken(token);
-      console.log(' Dans la navbar', decode);
-      this.membreService.getMembreById(decode.sub).subscribe(res => {
-        console.log('admin', res.body);
-        this.personne = res.body;
-        this.nom = this.personne.nom;
+    const currentUser = this.authService.currentUserValue;
+    if (currentUser) {
+      console.log(currentUser);
+      // @ts-ignore
+      const decoded = this.helper.decodeToken(currentUser);
+      console.log(' Dans la navbar', decoded);
+      this.registrationService.getClientByLogin(decoded.sub).subscribe(res => {
+        console.log('admin&&&&&&&&&&&&&&&', res.body);
+        this.client = res.body;
+        this.nom = this.client.nom;
         this.premierC = this.nom.substr(0, 1);
       });
-
     }
+
+
+
   }
   myFunction() {
     var navbar = document.getElementById("navbar");

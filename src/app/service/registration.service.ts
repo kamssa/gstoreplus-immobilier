@@ -4,15 +4,15 @@ import {Resultat} from "../models/resultat";
 import {HttpClient} from "@angular/common/http";
 import {MessageService} from "./message.service";
 import {environment} from "../../environments/environment";
-import {Membre} from "../models/Membre";
+import {Client} from "../models/Client";
 
 @Injectable({
   providedIn: 'root'
 })
-export class MembreService {
+export class RegistrationService {
 
-  private clientCreerSource = new Subject<Resultat<Membre>>();
-  private clientModifSource = new Subject<Resultat<Membre>>();
+  private clientCreerSource = new Subject<Resultat<Client>>();
+  private clientModifSource = new Subject<Resultat<Client>>();
   private clientFiltreSource = new Subject<string>();
   private clientSupprimeSource = new Subject<Resultat<boolean>>();
 
@@ -25,33 +25,28 @@ export class MembreService {
 
   constructor(private  http: HttpClient, private messageService: MessageService) {
   }
-  getAllMembre(): Observable<Resultat<Membre[]>> {
-    return this.http.get<Resultat<Membre[]>>(`${environment.apiUrl}/api/auth/employe`);
+
+  registraction(client: Client, action: string): Observable<Resultat<Client>> {
+    console.log('methode du service qui inscrit  un client', client);
+    return this.http.post<Resultat<Client>>(`${environment.apiUrl}/api/auth/registration/?action=${action}`, client);
   }
-  registraction(membre: Membre, action: string): Observable<Resultat<Membre>> {
-    console.log('methode du service qui ajoute un membre', membre);
-    return this.http.post<Resultat<Membre>>(`${environment.apiUrl}/api/auth/signupM/?action=${action}`, membre);
+  registractionConfirm(login: string, code: number): Observable<Resultat<Client>> {
+    console.log('methode du service qui ajoute un membre', login);
+    return this.http.get<Resultat<Client>>(`${environment.apiUrl}/api/auth/registrationConfirm/?login=${login}&code=${code}`);
   }
-  registractionConfirm(email: string, code: number): Observable<Resultat<Membre>> {
-    console.log('methode du service qui ajoute un membre', email);
-    return this.http.get<Resultat<Membre>>(`${environment.apiUrl}/api/auth/registrationConfirmM/?email=${email}&code=${code}`);
+  getClientByLogin(login: string): Observable<Resultat<Client>> {
+    return this.http.get<Resultat<Client>>(`${environment.apiUrl}/api/auth/clientByLogin/${login}`);
   }
-  ajoutMembre(membre: Membre): Observable<Resultat<Membre>> {
-    console.log('methode du service qui ajoute un client', membre);
-    return this.http.post<Resultat<Membre>>(`${environment.apiUrl}/api/auth/signupEmpl`, membre);
+  getClientById(id: number): Observable<Resultat<Client>> {
+    return this.http.get<Resultat<Client>>(`${environment.apiUrl}/api/auth/client/${id}`);
   }
-  getMembreById(id: number): Observable<Resultat<Membre>> {
-    return this.http.get<Resultat<Membre>>(`${environment.apiUrl}/api/membre/${id}`);
-  }
-  getMembreByEmail(email: string): Observable<Resultat<Membre>> {
-    return this.http.get<Resultat<Membre>>(`${environment.apiUrl}/api/getMembre/${email}`);
-  }
-  membreCreer(res: Resultat<Membre>) {
+
+  membreCreer(res: Resultat<Client>) {
     console.log('Membre a ete  creer correctement essaie source');
     this.clientCreerSource.next(res);
   }
 
-  membreModif(res: Resultat<Membre>) {
+  membreModif(res: Resultat<Client>) {
     this.clientModifSource.next(res);
   }
 

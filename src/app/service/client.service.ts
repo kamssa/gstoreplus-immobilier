@@ -24,19 +24,11 @@ export class ClientService {
 
   constructor(private  http: HttpClient, private messageService: MessageService) {
   }
-  getAllClient(): Observable<Resultat<Client[]>> {
-    return this.http.get<Resultat<Client[]>>(`${environment.apiUrl}/api/auth/employe`);
-  }
-  registraction(client: Client, action: string): Observable<Resultat<Client>> {
-    console.log('methode du service qui ajoute un client', client);
-    return this.http.post<Resultat<Client>>(`${environment.apiUrl}/api/auth/signupc/?action=${action}`, client);
-  }
-  ajoutClient(client: Client): Observable<Resultat<Client>> {
-    console.log('methode du service qui ajoute un client', client);
-    return this.http.post<Resultat<Client>>(`${environment.apiUrl}/api/auth/signupEmpl`, client);
-  }
+
+
+
   getClientById(id: Client): Observable<Resultat<Client>> {
-    return this.http.get<Resultat<Client>>(`${environment.apiUrl}/api/auth/employe/${id}`);
+    return this.http.get<Resultat<Client>>(`${environment.apiUrl}/api/client/${id}`);
   }
 
   clientCreer(res: Resultat<Client>) {

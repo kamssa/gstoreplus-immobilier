@@ -7,7 +7,6 @@ import {FlashService} from "../service/flash.service";
 import {Terrain} from "../models/Terrain";
 import {FlashTerrain} from "../models/FlashTerrain";
 import {Ville} from "../models/Ville";
-import {Membre} from "../models/Membre";
 
 @Component({
   selector: 'app-accueil',
@@ -20,7 +19,6 @@ export class AccueilComponent implements OnInit{
   flasTerrains: FlashTerrain[];
   villes: Ville[];
   edit: boolean;
-  membre: Membre;
   public modeselect = 'Tous';
   villeId: any;
   item: number;
@@ -33,7 +31,7 @@ export class AccueilComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.flashService.getAllFlashTerrain().subscribe(res => {
+    /*this.flashService.getAllFlashTerrain().subscribe(res => {
       this.flasTerrains = res.body;
       console.log(this.flasTerrains);
 
@@ -47,7 +45,7 @@ export class AccueilComponent implements OnInit{
       this.villes = res.body;
       console.log(this.villes);
 
-    });
+    });*/
   }
   activeCategorie(t: number) {
     var a = document.getElementById('deuxieme').children;

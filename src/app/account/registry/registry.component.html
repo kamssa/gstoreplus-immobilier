@@ -14,21 +14,22 @@
               <input matInput type="text" placeholder="Nom " formControlName="nom" id="nom">
               <mat-error *ngIf="hasError('nom', 'required')">Champ obligatoire</mat-error>
             </mat-form-field>
-            <mat-form-field class="example-full-width" formGroupName="adresse">
+            <mat-form-field class="example-full-width">
+              <input matInput type="text" placeholder="Email " formControlName="login" id="email">
+              <mat-error *ngIf="hasError('login', 'required')">Champ obligatoire</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
                 <input matInput type="text" placeholder="Téléphone (Numéro lié à votre WhatsApp)" formControlName="telephone" id="telephone">
               <mat-hint align="end"></mat-hint>
             </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <input matInput type="text" placeholder="Email " formControlName="email" id="email">
-              <mat-error *ngIf="hasError('email', 'required')">Champ obligatoire</mat-error>
-            </mat-form-field>
+
             <mat-form-field class="example-full-width">
               <input matInput type="text" placeholder="Mot de passe " formControlName="password" id="password">
               <mat-error *ngIf="hasError('password', 'required')">Champ obligatoire</mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
-              <input matInput type="text" placeholder="Confirmer mot de passe " formControlName="password">
-              <mat-error *ngIf="hasError('password', 'required')">Champ obligatoire</mat-error>
+              <input matInput type="text" placeholder="Confirmer mot de passe " formControlName="repassword">
+              <mat-error *ngIf="hasError('repassword', 'required')">Champ obligatoire</mat-error>
             </mat-form-field>
             <div class="text-center pt-3">
             </div>

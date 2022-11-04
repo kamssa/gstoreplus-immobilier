@@ -7,6 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../service/auth.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ClientService} from "../../service/client.service";
+import {LoginRequest} from "../../models/loginRequest";
 
 @Component({
   selector: 'app-connexion',
@@ -48,43 +49,25 @@ export class ConnexionComponent implements OnInit {
   get f() { return this.connexionForm.controls; }
   initForm(): void {
     this.connexionForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      login: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
 
   }
 
   onSubmit() {
-   /* if (navigator.onLine){
+    if (navigator.onLine){
       this.submitted = true;
       // stop here if form is invalid
-      const email = this.connexionForm.get('email').value;
-      const password = this.connexionForm.get('password').value;
-      this.clientService.getClientByEmail(email).subscribe(res => {
-        if (res.status === 0){
-          this.loading = true;
+      const login = this.connexionForm.value.login;
+      const password = this.connexionForm.value.password;
 
-          const client = new Personne(
-            null,
-            null,
-            null,
-            null,
-            null,
-            email,
-            null,
-            null,
-            null,
-            null,
-            password,
-            null,
-            null,
-            null,
-            false,
-            false,
-            'CL'
-
-          );
-          this.authService.login(client).subscribe(data => {
+      const loginRequest: LoginRequest = {
+        loginOrTelephone: login,
+        password,
+      };
+          console.log(loginRequest);
+          this.authService.login(loginRequest).subscribe(data => {
               if (data.status === 0 ){
                 this.snackBar.open('Succès de la connexion!', '', {
                   duration: 3000,
@@ -100,14 +83,11 @@ export class ConnexionComponent implements OnInit {
               this.loading = false;
               this.error = "E-mail ou mot de passe oublié! Réessayez svp";
             });
-        }else {
-          this.error = "Email ou mot de passe oublié !";
-        }
-      });
+
+
     }else {
       this.error = 'Vérifiez votre connexion internet s\'il vous plaît';
     }
-*/
   }
 
   passeOublie() {

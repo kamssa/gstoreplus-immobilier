@@ -14,10 +14,10 @@
                 <form [formGroup]="connexionForm"  (ngSubmit)="onSubmit()" class="bg-white rounded shadow-5-strong p-5">
                   <!-- Email input -->
                   <div class="form-outline mb-4">
-                    <input name="" class="form-control" placeholder="Email" formControlName="email" type="email"
-                           [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                      <div *ngIf="f.email.errors.required">l'adresse mail est obligatoire</div>
+                    <input name="" class="form-control" placeholder="Login" formControlName="login" type="text"
+                           [ngClass]="{ 'is-invalid': submitted && f.login.errors }">
+                    <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+                      <div *ngIf="f.login.errors.required">l'adresse mail est obligatoire</div>
                     </div>
                   </div>
 

@@ -8,10 +8,7 @@ import {MediaObserver} from "@angular/flex-layout";
 import {FlashService} from "../../service/flash.service";
 import {switchMap} from "rxjs/operators";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {Prospect} from "../../models/Prospect";
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
-import {ProspectService} from "../../service/prospect.service";
-import {Demande} from "../../models/Demande";
 import {DemandeService} from "../../service/demande.service";
 
 
@@ -31,7 +28,6 @@ export class DemandeComponent implements OnInit {
   edit = false;
   demandeForm: FormGroup;
   private dialogConfig;
-  prospect: Prospect;
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   password: string = 'gstoreplus';
@@ -49,7 +45,6 @@ export class DemandeComponent implements OnInit {
               private mediaObserver: MediaObserver,
               private flashService: FlashService,
               private fb: FormBuilder,
-              private prospectService: ProspectService,
               private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -79,8 +74,8 @@ export class DemandeComponent implements OnInit {
     });
   }
   onSubmit(demandeFormValue) {
-    console.log(this.demandeForm.value);
-    let  prospect: Prospect = {
+   /* console.log(this.demandeForm.value);
+    let  prospect: Client = {
       titre: this.titre,
       nom: demandeFormValue.nom,
       prenom: demandeFormValue.prenom,
@@ -115,7 +110,7 @@ export class DemandeComponent implements OnInit {
           }
         });
       }
-    });
+    });*/
   }
   greetTitre(event) {
     console.log(event.value);
