@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
     console.log(this.menuItems);
     //console.log(this.authService.isUserLoggedIn.value);
 
-    this.authService.refreshNeeded.subscribe(() =>{
+    this.authService.refreshNeeded.subscribe(() => {
     this.getCurrentUser();
 
     });

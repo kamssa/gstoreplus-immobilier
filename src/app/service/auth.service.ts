@@ -5,7 +5,6 @@ import {Resultat} from '../models/resultat';
 import {environment} from '../../environments/environment.prod';
 import {map} from 'rxjs/operators';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {Client} from "../models/Client";
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +30,7 @@ export class AuthService {
         console.log(res);
         localStorage.setItem('currentUser', JSON.stringify(res.body.body.accessToken));
         this.currentUserSubject.next(res.body.body.accessToken);
+        this._refreshNeeded$.next();
         console.log(res.body.body.accessToken);
         return res;
       }));
@@ -40,5 +40,6 @@ export class AuthService {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this._refreshNeeded$.next();
   }
 }
