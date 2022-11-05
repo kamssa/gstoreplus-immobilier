@@ -18,6 +18,8 @@ export class RegistryComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   error = '';
   client: Client;
+  loading = false;
+
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private registrationService: RegistrationService,
@@ -56,6 +58,7 @@ export class RegistryComponent implements OnInit {
      localStorage.setItem('password', this.registryForm.value.password);
      this.registrationService.getClientByLogin(client.login).subscribe(data => {
        if(data.body === null){
+         this.loading = true;
          this.registrationService.registraction(client, 'Register').subscribe(resultat => {
            if (resultat) {
              this.client = resultat.body;

@@ -4,7 +4,6 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 import {Personne} from "../../models/Personne";
 import {AuthService} from "../../service/auth.service";
 import {Location} from '@angular/common';
-import {ClientService} from "../../service/client.service";
 import {RegistrationService} from "../../service/registration.service";
 import {Client} from "../../models/Client";
 
@@ -20,6 +19,13 @@ export const ROUTES: RouteInfo[] = [
   { path: 'contact', title: 'Contact'},
   { path: 'connexion', title: 'Se connecter'}
   ];
+export const ROUTE: RouteInfo[] = [
+  { path: 'accueil', title: 'Accueil'},
+  { path: 'apropos', title: 'A propos'},
+  { path: 'investissement', title: 'Investissement'},
+  { path: 'blog', title: 'Blog'},
+  { path: 'contact', title: 'Contact'},
+];
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -27,6 +33,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class NavbarComponent implements OnInit {
   menuItems: RouteInfo[];
+  menuItem: RouteInfo[];
   client: Client;
   nom: string;
   premierC: string;
@@ -34,6 +41,7 @@ export class NavbarComponent implements OnInit {
   mobile_menu_visible: any = 0;
   private toggleButton: any;
   private sidebarVisible: boolean;
+   navConnexion = false;
 
   constructor(private router: Router,
               private helper: JwtHelperService,
@@ -43,6 +51,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     window.addEventListener('scroll', this.myFunction);
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItem = ROUTE.filter(menuItem => menuItem);
     console.log(this.menuItems);
     //console.log(this.authService.isUserLoggedIn.value);
 
@@ -55,15 +64,16 @@ export class NavbarComponent implements OnInit {
   getCurrentUser(){
     const currentUser = this.authService.currentUserValue;
     if (currentUser) {
-      console.log(currentUser);
       // @ts-ignore
       const decoded = this.helper.decodeToken(currentUser);
-      console.log(' Dans la navbar', decoded);
       this.registrationService.getClientByLogin(decoded.sub).subscribe(res => {
-        console.log('admin&&&&&&&&&&&&&&&', res.body);
-        this.client = res.body;
-        this.nom = this.client.nom;
-        this.premierC = this.nom.substr(0, 1);
+        if (res.status === 0){
+          this.navConnexion = true;
+          this.client = res.body;
+          this.nom = this.client.nom;
+          this.premierC = this.nom.substr(0, 1);
+        }
+
       });
     }
 

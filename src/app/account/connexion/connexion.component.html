@@ -49,13 +49,13 @@
 
                   <!-- Submit button -->
                   <div style="text-align: center;">
-                    <button type="submit" class="btn btn-block" style="background-color: #302244;color: white;">
+                    <button [disabled]="loading" type="submit" class="btn btn-block" style="background-color: #302244;color: white;">
+                      <span  *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                       Se connecter</button>
                     <p style="position: relative; font-style: italic; color: blue">
                       Ou créez un compte si vous n'en avez pas. <a routerLink="/registry">ici</a></p>
                   </div>
 
-                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                   <div *ngIf="error" class="btn login_btn">{{error}}</div>
 
                 </form>

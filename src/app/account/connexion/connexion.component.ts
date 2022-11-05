@@ -8,6 +8,7 @@ import {AuthService} from "../../service/auth.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ClientService} from "../../service/client.service";
 import {LoginRequest} from "../../models/loginRequest";
+import {RegistrationService} from "../../service/registration.service";
 
 @Component({
   selector: 'app-connexion',
@@ -34,6 +35,7 @@ export class ConnexionComponent implements OnInit {
                private router: Router,
                private snackBar: MatSnackBar,
                private authService: AuthService,
+               private registratioService: RegistrationService,
                public dialog: MatDialog,
                private  clientService: ClientService) { }
 
@@ -67,21 +69,28 @@ export class ConnexionComponent implements OnInit {
         password,
       };
           console.log(loginRequest);
-          this.authService.login(loginRequest).subscribe(data => {
-              if (data.status === 0 ){
-                this.snackBar.open('Succès de la connexion!', '', {
-                  duration: 3000,
-                  horizontalPosition: this.horizontalPosition,
-                  verticalPosition: this.verticalPosition,
-                });
-              }else {
-                this.isuAth = false;
-              }
-              this.router.navigate(['accueil']);
-            },
-            error => {
-              this.loading = false;
-              this.error = "E-mail ou mot de passe oublié! Réessayez svp";
+          this.registratioService.getClientByLogin(login)
+            .subscribe(res => {
+  if(res.status === 0){
+    this.loading = true;
+    this.authService.login(loginRequest).subscribe(data => {
+        if (data.status === 0 ){
+          this.snackBar.open('Succès de la connexion!', '', {
+            duration: 3000,
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+        }else {
+          this.isuAth = false;
+        }
+        this.router.navigate(['accueil']);
+      },
+      error => {
+        this.loading = false;
+        this.error = "E-mail ou mot de passe oublié! Réessayez svp";
+      });
+
+  }
             });
 
 
