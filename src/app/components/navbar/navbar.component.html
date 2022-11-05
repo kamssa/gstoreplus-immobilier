@@ -51,12 +51,12 @@
               <div  class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenu">
                 <div class="card" style="width: 20rem;">
                   <div class="card-body">
-                    <p class="minuscule">{{client?.nomComplet}}</p>
-                    <p class="minuscul">{{client?.login}}</p>
-                    <p class="card-text">
-                      <button  class="btn btn-primary btnValider"  (click)="openDash(client?.id)" >Mon tableau de bord</button>
-                    </p>
-                    <p><button  class="btn btn-primary btnValider" (click)="logout()">Déconnexion</button></p>
+                    <a class="dropdown-item text-dark"  (click)="openDash(client?.id)">{{client?.nomComplet}}</a>
+                    <a class="dropdown-item text-dark" (click)="openDash(client?.id)">{{client?.login}}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-dark" (click)="openDash(client?.id)">Mon tableau de bord</a>
+                      <a class="dropdown-item text-dark" (click)="logout()">Se deconnecter</a>
+
                   </div>
                 </div>
               </div>
